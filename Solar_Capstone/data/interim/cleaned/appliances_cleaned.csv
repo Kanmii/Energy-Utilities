@@ -1,0 +1,428 @@
+﻿Category,Appliance,Type,min_power_w,max_power_w,hours_per_day_min,hours_per_day_max,surge_factor,Notes
+Agricultural & Farming Equipment,Greenhouse Systems,Ventilation Fan,100,500,6,12,1.2,"Essential climate control equipment in commercial and semi-commercial greenhouses. Used primarily during hot seasons to maintain optimal growing temperatures between 20-30°C. Popular in urban farming initiatives, flower cultivation businesses, and hydroponic setups."
+Agricultural & Farming Equipment,Greenhouse Systems,Grow Lights (LED/HID),50,500,6,18,1,"Artificial lighting systems for year-round crop production and supplemental lighting during cloudy periods. LED variants are increasingly preferred due to energy efficiency and longer lifespan. Common in hydroponic setups, commercial vegetable production, and indoor farming operations, especially where natural light is insufficient for optimal plant growth."
+Agricultural & Farming Equipment,Incubators,Small Egg Incubator (50–200 eggs),100,500,24,24,1,"Automated hatching equipment for small-scale poultry operations maintaining precise temperature (37.5°C) and humidity levels. Essential for broiler and layer production in both rural and urban settings. Often used by cooperative farming groups, individual entrepreneurs, and small commercial hatcheries."
+Agricultural & Farming Equipment,Irrigation Systems,Drip Irrigation Pump,100,500,2,6,1.5,"Water-efficient irrigation technology gaining popularity among progressive farmers for precise water delivery to plant roots. Particularly valuable during dry seasons and in areas with water scarcity. Commonly used for high-value crops like tomatoes, peppers, leafy vegetables, and fruit orchards. Reduces water waste by 30-50% compared to flood irrigation."
+Agricultural & Farming Equipment,Livestock Equipment,Automatic Watering System,50,200,4,12,1,"Reduces labor costs and ensures consistent clean water supply for livestock health and productivity. Popular in modern poultry houses, cattle ranches, goat farming operations, and pig farms. Essential for maintaining animal welfare standards and optimizing feed conversion ratios in commercial livestock operations."
+Agricultural & Farming Equipment,Sprayers,Electric Knapsack Sprayer,60,150,2,6,1,"Mechanized spraying equipment that reduces manual labor and ensures uniform application of pesticides, herbicides, and fertilizers. Widely used by smallholder farmers for crop protection programs. More efficient than manual sprayers with better coverage and reduced operator fatigue during field applications."
+Computing & Communication,Desktop PC,Basic Office/Desktop,100,200,4,10,1,"Standard computing equipment found in educational institutions, cybercafés, government offices, and small businesses. Often shared among multiple users in computer training centers and business centers. Typical specifications include 4-8GB RAM, basic processors suitable for office applications, internet browsing, and educational software."
+Computing & Communication,Desktop PC,High-Performance/Gaming,300,800,2,8,1,"Specialized computers with dedicated graphics cards for gaming, video editing, 3D rendering, and CAD applications. Popular in creative industries, architectural firms, media production houses, and gaming lounges in urban areas. Higher power consumption due to powerful GPUs and processors."
+Computing & Communication,Desktop PC,All-in-One PC,60,150,4,10,1,"Space-saving computer solution combining monitor and CPU in single unit, reducing cable clutter and desk space requirements. Preferred in modern offices, reception areas, and upscale homes where aesthetics and space efficiency are priorities. Generally more expensive than traditional desktop setups."
+Computing & Communication,Laptop,"Ultrabook (13–14"")",30,60,4,10,1,"Premium portable computers emphasizing thinness, light weight, and long battery life. Popular among business professionals, students, and frequent travelers. Brands like Dell XPS, MacBook Air, and HP Envy dominate this segment. Higher cost limits widespread adoption to affluent users and corporate environments."
+Computing & Communication,Laptop,"Standard/Business (15"")",45,90,4,10,1,"Most common laptop category in Nigeria offering balanced performance, screen size, and affordability. Popular among university students, office workers, small business owners, and middle-class professionals. Brands like HP, Lenovo, and Dell Inspiron are widely available and serviced locally."
+Computing & Communication,Laptop,Gaming Laptop,100,250,2,8,1,"High-performance portable computers with dedicated graphics cards for gaming and resource-intensive applications. Popular among young professionals in tech, media, creative industries, and serious gamers. Higher power consumption and heat generation require robust cooling systems."
+Computing & Communication,Laptop,Workstation Laptop,120,300,4,10,1,"Professional-grade laptops with workstation-class processors and graphics for engineering, architectural CAD work, video editing, and scientific applications. Used by architects, engineers, media production companies, and research institutions. Premium pricing reflects professional-grade components and reliability."
+Computing & Communication,Monitors,"Small LED (19–24"")",15,40,4,10,1,"Standard office monitors found in businesses, schools, government offices, and computer centers. Cost-effective solution for basic computing needs, document editing, and internet browsing. Good balance of size and affordability for budget-conscious organizations."
+Computing & Communication,Monitors,"Medium LED (25–32"")",30,80,4,10,1,"Larger displays used in design studios, modern offices, home entertainment setups, and professional workstations. Growing popularity due to increasing multimedia consumption, video conferencing needs, and multitasking requirements in modern work environments."
+Computing & Communication,Monitors,High-end 4K/Curved,60,150,2,8,1,"Premium displays offering ultra-high resolution and immersive curved screens for professional designers, video editors, gamers, and luxury home offices. Limited market due to high cost but growing among affluent users, creative professionals, and gaming enthusiasts."
+Computing & Communication,Networking Devices,Wi-Fi Router (Basic),5,15,6,24,1,"Essential internet connectivity device providing wireless network access in homes, small offices, and businesses. Major ISPs like MTN, Airtel, Glo, and 9mobile provide these as part of broadband packages. Basic models support 802.11n/ac standards with typical range of 30-50 meters indoors."
+Computing & Communication,Networking Devices,4G/5G LTE MiFi,5,20,4,12,1,"Portable internet hotspots enabling wireless internet access for multiple devices using cellular data networks. Popular among students, mobile professionals, remote workers, and as backup internet during fixed broadband outages. Battery-powered operation provides 4-8 hours of continuous use."
+Computing & Communication,Networking Devices,Fiber Optic Modem/ONT,10,30,6,24,1,"Advanced internet connectivity equipment for high-speed fiber broadband services delivering gigabit internet speeds. Used by premium ISPs like IPNX, Smile, Spectranet, and MainOne for commercial and residential high-speed internet packages in urban areas."
+Computing & Communication,Printers,Inkjet Printer,20,50,0.25,1,1.5,"Common home and small office printing solution using liquid ink cartridges for color and black-and-white printing. Lower initial purchase cost but higher per-page printing costs due to expensive ink cartridges. Popular for occasional printing needs, photos, and color documents"
+Computing & Communication,Printers,Laser Printer,250,500,0.25,1,1.5,"Professional printing equipment using toner cartridges for high-volume, fast document production. Preferred in offices, schools, and businesses due to lower per-page costs, faster printing speeds, and crisp text quality. Higher initial cost but more economical for frequent printing."
+Computing & Communication,Printers,All-in-One (Print/Scan/Copy),30,100,0.25,1,1.5,"Multifunction devices combining printing, scanning, copying, and sometimes faxing capabilities in single unit. Popular in cybercafés, small businesses, modern offices, and homes needing multiple document services. Space-saving solution with shared power supply for all functions."
+Computing & Communication,Printers,Large Industrial Printer,1000,3000,2,8,1.5,"High-capacity commercial printing equipment for printing presses, large offices, universities, and commercial printing services. Heavy-duty construction for continuous operation with high monthly page volumes and professional print quality."
+Computing & Communication,Printers (Solar),Compact DC Solar Printer,50,200,0.5,2,1.5,"Low-power printers designed for solar power systems and off-grid locations. Used by small businesses, rural offices, and mobile printing services where grid electricity is unreliable. Direct current operation compatible with solar battery systems."
+Computing & Communication,Projectors,Portable Pico Projector,10,30,0.25,2,1,"Ultra-compact projection devices for mobile presentations, personal entertainment, and small group meetings. Limited brightness (50-300 lumens) suitable for darkened rooms and close viewing distances. Popular among traveling professionals and students for presentations."
+Computing & Communication,Projectors,Standard LED Projector,50,150,1,4,1,"Versatile projection equipment with moderate brightness (1500-3000 lumens) for classrooms, conference rooms, churches, small auditoriums, and home theaters. Good balance of portability, image quality, and affordability for general presentation needs."
+Computing & Communication,Projectors,High-Brightness (LCD/DLP),200,500,2,6,1,"Professional projection equipment with high brightness (3000+ lumens) for large venues, conferences, outdoor events, and well-lit environments. Higher cost justified by superior image quality, longer lamp life, and professional features for commercial applications."
+Computing & Communication,Projectors,Cinema-Grade Projector,1000,3000,4,12,1,"Professional cinema projection equipment for movie theaters, large auditoriums, and premium home theaters. Ultra-high brightness, resolution, and color accuracy for theatrical presentations. Rare due to high cost and specialized installation requirements."
+Computing & Communication,Projectors (Solar),Portable DC Solar Projector,50,150,2,6,1.5,"Low-power projectors designed for solar power systems, rural schools, and off-grid educational programs. Direct current operation compatible with solar batteries, supporting education and community programs in remote areas."
+Computing & Communication,Scanners,Flatbed Scanner,10,30,0.25,1,1,"Basic document and photo scanning equipment for offices, schools, and homes. Glass surface accommodates various document sizes up to A4/Letter format. Suitable for occasional scanning needs, archiving documents, and digitizing photos."
+Computing & Communication,Scanners,Document Scanner (ADF),20,60,0.25,1,1,"High-speed scanning equipment with automatic document feeders for bulk document processing. Used in businesses, banks, government offices, and service bureaus for digitizing large volumes of documents quickly and efficiently."
+Computing & Communication,Servers/Workstations,Small Server (Home/Office),200,500,6,24,1.2,"Entry-level server equipment for small businesses, home offices, and IT service providers. Provides file sharing, backup services, small website hosting, and basic network services. Growing importance as businesses digitize operations."
+Computing & Communication,Servers/Workstations,Rack Server,500,1200,12,24,1.2,"Professional server equipment mounted in standard 19-inch racks for data centers, banks, large offices, and IT infrastructure. Higher processing power, redundancy, and reliability for mission-critical business applications and services."
+Computing & Communication,Servers/Workstations,Blade Server,800,2500,12,24,1.2,"High-density server systems with multiple server modules in shared chassis for large enterprises, universities, cloud service providers, and data centers. Maximum computing power per rack unit with shared cooling, power, and networking infrastructure."
+Cooling Appliances,Air Conditioner,1 HP (Small Room),750,1200,2,10,3,"Entry-level air conditioning suitable for bedrooms, small offices, hotel rooms, and apartments up to 12-15 square meters. Most affordable option for basic cooling needs. Available in window and split unit configurations with basic temperature control features."
+Cooling Appliances,Air Conditioner,1.5 HP (Medium Room),1200,1800,2,10,3,"Most popular AC capacity in Nigerian homes providing optimal balance of cooling performance, energy efficiency, and affordability. Suitable for living rooms, master bedrooms, and medium offices up to 20-25 square meters. Standard choice for middle-class households."
+Cooling Appliances,Air Conditioner,2 HP (Large Room),1800,2500,2,10,3,"Powerful cooling solution for large living rooms, open-plan offices, hotel suites, small halls, and commercial spaces up to 35-40 square meters. Higher energy consumption justified by coverage area and cooling effectiveness in hot climates."
+Cooling Appliances,Air Conditioner,3 HP (Commercial Use),2500,3500,2,12,3,"Commercial-grade air conditioning for shops, banks, restaurants, large offices, small auditoriums, and business premises. Professional installation required with appropriate electrical infrastructure to handle high power demands and continuous operation."
+Cooling Appliances,Air Conditioner,Portable AC,1000,1500,2,8,3,"Mobile air conditioning units with wheels for easy relocation between rooms. Less common due to lower efficiency but useful in rented apartments, temporary installations, and situations where permanent installation isn't feasible."
+Cooling Appliances,Air Conditioner,Standing (Floor Unit),1500,2500,2,8,3,"Tall upright air conditioning units for offices, churches, event halls, and commercial spaces. Professional appearance suitable for visible installation in public spaces. Often solar-compatible models available for off-grid applications."
+Cooling Appliances,Air Conditioner,1 HP Solar DC ,700,1000,2,10,3,Entry-level solar air conditioner designed for small rooms in off-grid homes. DC compressor technology optimized for direct solar power connection with battery backup.
+Cooling Appliances,Air Conditioner,1.5 HP Solar DC ,1200,1800,2,10,3,Most popular solar AC capacity providing effective cooling for medium rooms while maintaining reasonable solar power consumption. Ideal for solar-powered homes.
+Cooling Appliances,Air Conditioner,2 HP Solar DC ,1800,2500,2,10,3,Larger capacity solar air conditioner for spacious rooms and offices in solar buildings. Requires larger solar panel arrays and battery systems.
+Cooling Appliances,Air Conditioner,Portable Solar AC (24V DC),500,1000,2,8,3,Compact mobile cooling unit designed for 24V solar systems. Lightweight and movable solution for flexible cooling in solar-powered spaces.
+Cooling Appliances,Ceiling Fan,Standard Ceiling Fan,70,90,6,18,1.2,"Most ubiquitous cooling appliance in Nigerian homes, classrooms, and offices. Operates 6-18 hours daily in tropical climate. Popular brands include Orl, Panasonic, QASA."
+Cooling Appliances,Ceiling Fan,Premium Ceiling Fan,80,120,6,18,1.2,"Higher-quality fans with superior motors, balanced blades, and quieter operation. Preferred in modern apartments, hotels, and upscale offices."
+Cooling Appliances,Fan,Standing Fan (12/24V DC),20,60,4,16,1.2,Direct current standing fans designed for solar power systems and low-voltage applications. Energy-efficient operation compatible with car batteries and solar systems.
+Cooling Appliances,Fan,Table Fan (12V DC),15,40,4,12,1.2,Small DC-powered table fans for personal cooling in solar-powered homes and vehicles. Portable solution for individual cooling needs in off-grid situations.
+Cooling Appliances,Fan,Rechargeable solar Fan (with battery),20,50,2,12,1.2,Battery-powered fans with integrated solar charging panels. Popular during outages with built-in battery providing hours of operation.
+Cooling Appliances,Fan,Ceiling Fan (24V DC),30,75,6,18,1.2,Direct current ceiling fans designed for 24V solar systems. Energy-efficient cooling solution widely used in solar-powered homes and off-grid buildings.
+Cooling Appliances,Rechargeable Fan,Small Rechargeable Fan,15,30,2,10,1.2,Compact battery-powered fans for personal cooling during power outages. Built-in rechargeable battery provides 4-8 hours operation with LED lighting function.
+Cooling Appliances,Rechargeable Fan,Large Rechargeable Fan,30,60,2,12,1.2,Higher-capacity battery-powered fans with stronger airflow and longer operating times. Built-in batteries provide 6-12 hours continuous operation.
+Cooling Appliances,Standing Fan,Basic Standing Fan,60,120,4,16,1.2,"Most common household cooling appliance offering portable personal cooling. Adjustable height and oscillation features. Popular brands include Ox, QASA, Binatone, Century."
+Cooling Appliances,Standing Fan,Rechargeable Standing Fan,15,60,2,12,1.2,Battery-powered standing fans designed for frequent power outages. Built-in rechargeable batteries with LED lighting and USB charging ports.
+Cooling Appliances,Table Fan,Small Table Fan,30,50,4,12,1.2,"Compact personal cooling fans for desks, bedside tables, and small spaces. Portable and affordable solution for individual cooling in hostels and offices."
+Cooling Appliances,Table Fan,Medium Table Fan,50,100,4,12,1.2,Slightly larger table fans with more powerful motors and better airflow coverage. Sometimes includes remote control and timer features.
+Cooling Appliances,Table Fan,Rechargeable Table Fan,15,40,2,12,1.2,"Battery-powered personal fans popular during power cuts. Built-in rechargeable batteries provide 4-8 hours operation with LED lamp functionality. Brands like QASA, Lontor, Ox."
+Educational & Institutional Appliances,AV Equipment,PA System (small hall),200,800,2,6,1.5,"Public address systems for lecture halls, schools, and training facilities. Essential for clear audio communication in educational settings for 50-200 person capacity."
+Educational & Institutional Appliances,Classroom Tools,Document Camera,10,30,2,6,1,Visual presentation devices for displaying physical documents and objects to entire classroom via projector. Used for live teaching demonstrations and detailed material examination.
+Educational & Institutional Appliances,Classroom Tools,Slide Projector,100,250,2,6,1.5,Legacy projection equipment still found in some schools for displaying 35mm slides. Being replaced by digital projectors but functional for archived materials.
+Educational & Institutional Appliances,Digital Displays,"Classroom LED Screen (32–55"")",80,250,2,8,1,Modern teaching aids replacing traditional blackboards in progressive schools. Interactive displays enabling multimedia presentations and enhanced learning.
+Educational & Institutional Appliances,Language Lab Equipment,Headsets + Consoles,50,150,2,6,1,"Specialized audio equipment for language learning laboratories enabling individual instruction, pronunciation practice, and listening comprehension exercises."
+Educational & Institutional Appliances,Library Equipment,Barcode Scanner,5,15,2,8,1,Digital inventory management tools for tracking book borrowing and returns. Essential equipment for modern library operations and catalog management.
+Educational & Institutional Appliances,Library Equipment,Library Kiosk,100,300,6,12,1.2,Self-service computer stations for patron access to digital catalogs and library services. Modern libraries use these for 24/7 resource access.
+Educational & Institutional Appliances,Other Classroom Devices,Electronic Bell System,50,150,2,12,1,"Automated timekeeping systems for schools to signal class periods, breaks, and dismissals. Replaces manual bell ringing with programmed schedules."
+Educational & Institutional Appliances,Other Classroom Devices,Classroom Fan (wall-mounted),40,80,6,12,1.2,Fixed ventilation fans for classroom air circulation and cooling. Wall-mounted design saves floor space while providing air movement.
+Educational & Institutional Appliances,Overhead Projectors,Classroom Overhead Projector,250,500,2,6,1.5,Traditional projection equipment using transparencies for displaying written materials. Still found in older classrooms with limited digital equipment budgets.
+Educational & Institutional Appliances,Science Lab Equipment,Microscope (digital),20,60,2,6,1,Advanced microscopes with digital cameras for specimen examination and image capture. Enable projection of microscopic images for class demonstration.
+Educational & Institutional Appliances,Science Lab Equipment,Centrifuge (small),100,500,1,4,1.5,Laboratory equipment for separating substances by spinning samples at high speeds. Used in medical training labs and biology education.
+Educational & Institutional Appliances,Smart Boards,Interactive Whiteboard,100,300,2,6,1.2,Advanced teaching technology allowing touch interaction and digital content display. Found in modern schools embracing digital education methods.
+Educational & Institutional Appliances,Specialized Devices,3D Printer (educational),50,200,2,6,1.5,Advanced manufacturing equipment for STEM education and engineering programs. Enables students to create physical prototypes and understand manufacturing.
+Educational & Institutional Appliances,Specialized Devices,Robotics Kits (charging),20,100,2,6,1,"Educational technology for coding, robotics, and STEM learning. Requires charging stations for robot components used in technology education."
+Entertainment & Media Electronics,Gaming Consoles,PlayStation (PS4/PS5),90,200,2,6,1,Sony gaming platform popular among youth in gaming lounges and entertainment centers. Growing gaming culture in urban areas driving demand.
+Entertainment & Media Electronics,Gaming Consoles,Xbox Series X/S,80,200,2,6,1,Microsoft gaming console with smaller market share but present in urban gaming setups and entertainment centers with multiple platforms.
+Entertainment & Media Electronics,Gaming Consoles,Nintendo Switch,10,30,2,6,1,Portable gaming console with unique handheld/docked functionality. Rare due to high cost and limited availability but popular among serious gamers.
+Entertainment & Media Electronics,Home Theater Systems,Compact 2.1 Channel,50,150,2,6,1.2,Basic surround sound systems with two speakers and subwoofer for enhanced TV audio experience compared to built-in TV speakers.
+Entertainment & Media Electronics,Home Theater Systems,Full 5.1 Surround,150,500,2,6,1.2,Complete surround sound systems with five speakers plus subwoofer for immersive audio experience in premium home entertainment setups.
+Entertainment & Media Electronics,Home Theater Systems,Soundbar (with Subwoofer),50,200,2,6,1.2,Modern slim audio solution combining multiple speakers in bar-shaped enclosure. Space-saving alternative to traditional surround systems.
+Entertainment & Media Electronics,Media Players,DVD Player,15,30,1,5,1.1,Legacy digital media players still used for movie collections and recorded content. Being replaced by streaming devices but functional for disc libraries.
+Entertainment & Media Electronics,Media Players,Blu-ray Player,20,40,1,5,1.1,High-definition disc players rare in Nigerian market due to high cost and limited content availability. Found only in premium entertainment setups.
+Entertainment & Media Electronics,Musical Instruments,Electric Keyboard,30,80,1,4,1.1,"Electronic musical instruments widely used in churches, schools, music training institutes, and home entertainment. Essential for worship and music education."
+Entertainment & Media Electronics,Musical Instruments,Electric Guitar + Amp,50,200,1,4,1.2,"Amplified string instruments common in churches, musical groups, and concerts. Popular for contemporary worship and band performances."
+Entertainment & Media Electronics,Musical Instruments,Drum Set (Electronic),40,100,1,3,1.1,"Electronic percussion instruments used in music bands, churches, and training schools. Quieter alternative to acoustic drums for apartment living."
+Entertainment & Media Electronics,Other Electronics,Karaoke Machine,50,150,1,6,1.2,"Entertainment equipment for singing along to recorded music tracks, popular at social gatherings and family entertainment in homes and bars."
+Entertainment & Media Electronics,Other Electronics,DJ Equipment (Mixer + Turntable),150,500,2,8,1.3,"Professional audio mixing equipment for DJs, clubs, wedding receptions, and entertainment events. Essential for music entertainment."
+Entertainment & Media Electronics,Photography Equipment,DSLR Camera (charging),10,30,1,4,1,"Professional photography equipment requiring regular battery charging for photographers, videographers, and media professionals in growing creative industry."
+Entertainment & Media Electronics,Photography Equipment,Studio Light (Softbox/LED),50,200,2,6,1.5,Professional lighting equipment for photo and video production studios. Essential for portrait photography and video content creation.
+Entertainment & Media Electronics,Photography Equipment,Video Camera (charging),20,60,1,4,1,"Professional videography equipment for media coverage, weddings, and content creation. Requires regular charging for extended recording sessions."
+Entertainment & Media Electronics,Projectors,Mini Projector,30,80,1,4,1.1,Compact projection devices for small presentations and personal entertainment. Convenient for business travelers and students needing portable projection.
+Entertainment & Media Electronics,Projectors,Standard Projector,150,300,1,4,1.2,"General-purpose projection equipment for schools, offices, churches, and medium-sized venues. Versatile solution for presentations and educational content."
+Entertainment & Media Electronics,Projectors,4K Projector,200,500,1,4,1.3,High-resolution projection equipment for premium home theaters and professional presentations. Superior image quality for discerning users.
+Entertainment & Media Electronics,Radios,Portable AM/FM Radio,2,10,1,6,1,Basic broadcast receivers common in rural homes and market stalls. Battery or USB powered for portability during power outages.
+Entertainment & Media Electronics,Radios,Rechargeable Radio,5,15,2,8,1,Battery-powered broadcast receivers popular during power outages. Built-in rechargeable batteries provide hours of news and entertainment.
+Entertainment & Media Electronics,Radios,Car Radio/Deck (standalone),10,30,1,6,1,Automotive audio equipment repurposed for home and shop use. Common in small businesses and kiosks as affordable music source.
+Entertainment & Media Electronics,Recreational Lighting,Disco Lights (portable),20,80,2,6,1.2,"Entertainment lighting effects for parties, clubs, and celebrations. Portable units for small gatherings creating dance atmosphere."
+Entertainment & Media Electronics,Recreational Lighting,LED Strip Lighting,5,30,2,8,1,"Decorative lighting for homes, events, and entertainment spaces. Colorful accent lighting for modern interior design and parties."
+Entertainment & Media Electronics,Set-Top Box/Decoder,"Basic Decoder (DSTV, GOTV, Startimes)",15,30,3,12,1.1,Digital television receivers for satellite and terrestrial broadcast services. Widely used across Nigeria for multichannel TV programming.
+Entertainment & Media Electronics,Set-Top Box/Decoder,Smart TV Box (Android/Apple TV),5,15,2,8,1,Internet-connected streaming devices for accessing online content and apps. Urban users with reliable internet use for Netflix and YouTube.
+Entertainment & Media Electronics,Sound Systems,Mini Hi-Fi,50,200,1,8,1.2,"Entry-level audio systems for small homes and personal entertainment. Compact design providing radio, CD/USB playback, and basic amplification."
+Entertainment & Media Electronics,Sound Systems,Large Hi-Fi/Home Theater,200,1000,2,8,1.3,Powerful audio systems for family entertainment in middle-class homes. Multiple input sources and room-filling sound for music and movies.
+Entertainment & Media Electronics,Sound Systems,Professional PA System,500,2000,2,12,1.5,"High-power audio equipment for churches, mosques, parties, and large events. Essential for public gatherings requiring sound amplification."
+Entertainment & Media Electronics,Speakers,Small Bluetooth Speaker,5,20,1,8,1,"Portable wireless audio devices for personal entertainment. Highly portable, battery-powered speakers popular among students and casual listeners."
+Entertainment & Media Electronics,Speakers,Medium Bluetooth Speaker,20,60,2,8,1,"Larger portable wireless speakers with better sound quality and battery life. Popular brands like JBL, Anker, Oraimo for parties and gatherings."
+Entertainment & Media Electronics,Speakers,Large Home Speaker System,100,300,2,6,1.5,"Powerful audio systems for home entertainment and music listening. Brands like LG, Sony, Samsung provide room-filling sound."
+Entertainment & Media Electronics,Television,CRT TV (Old Box TV),60,150,2,8,1.2,"Legacy television technology very common in Nigeria from 1990s-2000s, still found in rural areas and low-income households."
+Entertainment & Media Electronics,Television,"Small LED TV (24–32"")",20,60,2,8,1,"Affordable flat-screen televisions for students, hostels, and small homes. Good balance of price and functionality for basic viewing."
+Entertainment & Media Electronics,Television,"Medium LED TV (40–50"")",50,120,2,8,1,Standard television size for middle-class family viewing and main living room entertainment. Most popular segment in Nigerian TV market.
+Entertainment & Media Electronics,Television,"Large LED TV (55–65"")",100,200,2,8,1,"Premium television for upper-class homes, hotels, and entertainment venues. Status symbol and enhanced viewing experience."
+Entertainment & Media Electronics,Television,Smart TV (65 Inches+),150,300,2,8,1,Internet-connected televisions enabling streaming services and apps. Premium brands targeting affluent households with reliable internet.
+Entertainment & Media Electronics,Television,OLED TV,50,250,2,10,1.2,Premium display technology with superior picture quality and contrast. Mostly in upper-class homes and entertainment enthusiasts.
+Entertainment & Media Electronics,Television,QLED TV,70,300,2,10,1.2,Advanced LED technology with quantum dot enhancement for superior brightness and color. Premium category for urban middle and upper-class households.
+Entertainment & Media Electronics,Television (Solar),Small DC Solar TV (19–32),20,60,4,10,1.2,Energy-efficient televisions designed for 19-32 inch viewing in solar-powered homes. Popular in rural solar installations and off-grid viewing centers.
+Entertainment & Media Electronics,Television (Solar),Large DC Solar TV (32–43),80,120,4,10,1.2,Larger solar-compatible televisions for viewing centers and urban solar installations. Higher capacity viewing for family entertainment.
+"Health, Medical & Lab Equipment",CT Scanners,Compact CT,5000,20000,2,6,2.5,Advanced medical imaging equipment for specialized hospitals providing detailed cross-sectional body imaging for diagnosis of internal conditions.
+"Health, Medical & Lab Equipment",CT Scanners,Full-body CT,20000,50000,2,6,2.5,"High-end diagnostic imaging equipment for comprehensive medical scanning. Rare in Nigeria due to high cost, found only in major medical centers."
+"Health, Medical & Lab Equipment",Cold Storage (Medical),Vaccine Refrigerator (small),100,300,12,24,3,Specialized medical refrigeration for vaccine storage in rural clinics maintaining precise temperature control for immunization programs.
+"Health, Medical & Lab Equipment",Cold Storage (Medical),Solar Vaccine/Medical Freezer (12/24V),60,150,24,24,1.5,WHO-approved vaccine storage equipment designed for solar power systems in rural clinics maintaining cold chain without electricity.
+"Health, Medical & Lab Equipment",Defibrillators,Portable AED,100,300,0.25,1,1.2,Automated external defibrillator for emergency cardiac care in ambulances and clinics. Life-saving equipment providing automated heart rhythm analysis.
+"Health, Medical & Lab Equipment",Defibrillators,Hospital Defibrillator,300,1000,0.25,1,1.2,Professional medical equipment for emergency cardiac care in hospitals and intensive care units with advanced features for trained professionals.
+"Health, Medical & Lab Equipment",Dental Equipment,Dental Chair with Tools,500,1500,2,8,1.5,Complete dental treatment setup including motorized patient chair and integrated instruments. Essential equipment for dental clinics.
+"Health, Medical & Lab Equipment",Dental Equipment,Dental X-Ray Unit,200,800,1,4,2,Specialized imaging equipment for oral and dental diagnostics. Required for dental clinics to diagnose tooth problems and plan treatments.
+"Health, Medical & Lab Equipment",Dialysis Machines,Hemodialysis Unit,1500,3000,3,6,1.5,"Life-support equipment for patients with kidney failure, filtering blood through artificial kidney machine in specialized treatment centers."
+"Health, Medical & Lab Equipment",Hospital Beds,Motorized Bed (adjustable),100,300,12,24,1.2,Electric hospital beds with motorized adjustment for patient positioning and comfort in modern hospitals and healthcare facilities.
+"Health, Medical & Lab Equipment",Incubators,Infant Incubator,300,800,12,24,1.5,"Critical care equipment for premature and critically ill newborns in maternity hospitals providing controlled temperature, humidity, and oxygen."
+"Health, Medical & Lab Equipment",Lab Freezers,Compact Medical Freezer,100,300,6,24,3,"Specialized freezing equipment for vaccines, blood samples, and medical specimens. Essential for laboratory sample preservation."
+"Health, Medical & Lab Equipment",Lab Freezers,Ultra-Low Freezer (-80°C),500,2000,12,24,3,Advanced laboratory equipment for long-term storage of biological samples and research materials in research institutes.
+"Health, Medical & Lab Equipment",Laboratory Equipment,Centrifuge (small),100,500,2,6,1.5,Laboratory equipment for separating blood components and medical samples by high-speed spinning. Essential for medical diagnostic procedures.
+"Health, Medical & Lab Equipment",Laboratory Equipment,Incubator (medical/lab),200,800,12,24,1.5,Controlled environment equipment for growing bacterial cultures and laboratory specimens in medical labs and research facilities.
+"Health, Medical & Lab Equipment",Laboratory Equipment,Blood Analyzer,200,500,2,6,1.5,Automated laboratory equipment for comprehensive blood testing and analysis. Essential in pathology labs for diagnostic testing.
+"Health, Medical & Lab Equipment",MRI Machines,Open MRI,5000,20000,4,8,2.5,Magnetic resonance imaging equipment for detailed body imaging and medical diagnosis. Lower power than traditional MRI but significant infrastructure needs.
+"Health, Medical & Lab Equipment",Microscopes,Basic Light Microscope,10,30,2,6,1,"Essential laboratory equipment for viewing specimens in schools, basic labs, and medical facilities. Standard tool for biological examination."
+"Health, Medical & Lab Equipment",Microscopes,Digital Microscope,30,80,2,6,1,Advanced microscopes with digital cameras for image capture and projection. Used in advanced schools and research facilities.
+"Health, Medical & Lab Equipment",Microscopes,Research-grade Microscope,100,500,2,8,1,"High-end laboratory equipment for universities, research labs, and advanced medical facilities conducting scientific research."
+"Health, Medical & Lab Equipment",Oxygen Concentrators,Small Portable Unit,200,400,6,24,1.2,Medical equipment for home healthcare and oxygen therapy for patients with respiratory conditions. Provides concentrated oxygen without tank refills.
+"Health, Medical & Lab Equipment",Oxygen Concentrators,Large Medical Unit,400,1000,12,24,1.2,Hospital-grade oxygen concentration equipment for intensive care units providing continuous oxygen supply for critical care patients.
+"Health, Medical & Lab Equipment",Patient Monitors,Basic Monitor,30,80,6,24,1,Essential medical equipment for tracking patient vital signs including heart rate and blood pressure in clinics and basic healthcare facilities.
+"Health, Medical & Lab Equipment",Patient Monitors,Advanced ICU Monitor,80,150,12,24,1,Sophisticated monitoring systems for intensive care units providing continuous patient monitoring with alarm systems for critical care.
+"Health, Medical & Lab Equipment",Respiratory Equipment,Oxygen Concentrator,300,800,6,24,1.5,Medical equipment for extracting and concentrating oxygen from ambient air for patients with breathing difficulties in home and hospital care.
+"Health, Medical & Lab Equipment",Sterilizers (Autoclaves),Small Clinic Autoclave,500,1000,2,6,1.5,Steam sterilization equipment for dental and small medical clinics to sterilize instruments. Essential for infection control.
+"Health, Medical & Lab Equipment",Sterilizers (Autoclaves),Large Hospital Autoclave,2000,5000,2,6,2,Industrial-scale sterilization equipment for hospitals and large medical facilities. High-capacity sterilization for surgical instruments.
+"Health, Medical & Lab Equipment",Sterilizers (Autoclaves),UV Sterilizer Cabinet,50,200,2,6,1.2,Ultraviolet sterilization equipment for beauty salons and small clinics. Alternative sterilization method for instruments unable to withstand steam.
+"Health, Medical & Lab Equipment",Surgical Tools,Surgical Lights (LED/Halogen),100,500,2,8,1.5,"Specialized lighting for operating theaters providing bright, shadow-free illumination essential for precision during medical procedures."
+"Health, Medical & Lab Equipment",Ultrasound Machines,Portable Ultrasound,200,500,2,8,1.2,Mobile diagnostic imaging equipment for clinics and mobile health outreaches. Enables medical imaging in remote areas.
+"Health, Medical & Lab Equipment",Ultrasound Machines,Standard Hospital Unit,500,1500,4,12,1.5,Fixed ultrasound equipment for hospitals and diagnostic centers. Comprehensive imaging capabilities for obstetrics and cardiology.
+"Health, Medical & Lab Equipment",X-Ray Machines,Portable X-Ray,500,2000,1,4,2,Mobile radiographic equipment for small clinics and dental offices. Flexibility for point-of-care imaging and mobile healthcare delivery.
+"Health, Medical & Lab Equipment",X-Ray Machines,Standard Radiology X-Ray,3000,10000,2,6,2.5,Fixed radiographic equipment for hospitals and imaging centers. High-power requirements for comprehensive diagnostic imaging.
+Large Cooking Appliances,Cooker with Oven,Standard (4-Burner + Oven),2500,5000,1,4,1.3,Complete cooking solution combining stovetop and oven functionality common in Nigerian families. Versatile for diverse cooking methods.
+Large Cooking Appliances,Cooker with Oven,Premium (5–6 Burners + Oven),3500,7000,1,5,1.3,Large cooking appliances for bigger households and restaurants. Enhanced cooking capacity for large-scale food preparation.
+Large Cooking Appliances,Deep Fryer,Small (1–2L),800,1200,0.25,1,1.2,Compact electric fryers for small kitchens and students. Suitable for personal use and small portions of fried plantains and yam.
+Large Cooking Appliances,Deep Fryer,Medium (2–4L),1200,1800,0.25,1,1.2,"Standard deep fryers for families and small food businesses. Common for preparing fried chicken, fish, and traditional Nigerian dishes."
+Large Cooking Appliances,Deep Fryer,Large (5L+),1800,2500,1,2,1.2,Commercial deep fryers for restaurants and catering businesses. High-capacity frying for commercial food preparation and service operations.
+Large Cooking Appliances,Electric Grill/Oven Combo,Compact Grill Oven,1500,2000,0.5,2,1.2,Small cooking appliances combining grilling and oven functions for compact kitchens and small restaurants. Space-saving multiple cooking methods.
+Large Cooking Appliances,Electric Grill/Oven Combo,Large Grill Oven,2000,4000,1,4,1.2,Commercial cooking equipment for hotels and catering services. High-capacity cooking for professional food service and large-scale preparation.
+Large Cooking Appliances,Electric Oven,Countertop (20–40L),1200,2000,0.5,2,1.3,Popular baking equipment for home-based cake and pastry businesses. Essential for Nigeria's growing entrepreneurial baking sector.
+Large Cooking Appliances,Electric Oven,Built-in Wall Oven,2000,3500,0.5,2,1.3,Premium cooking appliances for modern kitchens and luxury apartments. Integrated design for contemporary kitchen aesthetics.
+Large Cooking Appliances,Electric Oven,Commercial Oven,3000,6000,1,6,1.3,"Industrial baking equipment for bakeries and large-scale food production. High-capacity, continuous-operation ovens for commercial baking."
+Large Cooking Appliances,Electric Roaster,Compact (3–5L),1000,1500,0.5,2,1.2,Small roasting appliances for chicken and meat preparation. Less common but useful for specific roasted food preparation methods.
+Large Cooking Appliances,Electric Roaster,Large (10–20L),1500,2500,1,3,1.2,Commercial roasting equipment for catering and large-scale food preparation. High-capacity roasting for parties and food service operations.
+Large Cooking Appliances,Electric Stove,Single Burner Hotplate,1000,1500,0.5,2,1.2,Basic electric cooking for students and small households. Portable and affordable cooking solution for minimal cooking requirements.
+Large Cooking Appliances,Electric Stove,Double Burner Hotplate,1500,2500,0.5,3,1.2,Moderate cooking capacity for small to medium households. Good balance of cooking capability and affordability for apartment living.
+Large Cooking Appliances,Electric Stove,4-Burner Electric Stove,2000,4000,1,4,1.2,Full cooking capability for larger households and complete meal preparation. Common in urban areas with reliable electricity.
+Large Cooking Appliances,Electric Stove,Induction Cooktop (1–2),1200,2200,0.5,2,1.3,Premium cooking technology for modern kitchens emphasizing energy efficiency and precise temperature control. Growing adoption in upscale homes.
+Large Cooking Appliances,Microwave Oven,Compact (17–20L),700,1000,0.25,1,1.2,Small microwave ovens for reheating and quick cooking for students and small families. Space-saving appliance for minimal cooking needs.
+Large Cooking Appliances,Microwave Oven,Standard (20–25L),1000,1500,0.25,1,1.2,Most common microwave size for average homes providing good capacity for family reheating and basic cooking needs.
+Large Cooking Appliances,Microwave Oven,Convection/Multi-Function,1200,2000,0.25,1,1.3,Advanced microwave ovens with additional cooking functions including grilling and convection. Premium appliances for comprehensive cooking.
+Large Cooking Appliances,Microwave Oven (Solar),Compact DC Microwave,600,1200,0.5,2,2,Energy-efficient microwave ovens designed for solar power systems and off-grid homes. Direct current operation compatible with solar batteries.
+Large Cooking Appliances,Pizza Oven,Countertop Pizza Oven,1000,2000,0.25,1,1.3,Specialized cooking appliances for small pizzerias and premium homes. Compact pizza preparation equipment for artisan cooking.
+Large Cooking Appliances,Pizza Oven,Commercial Pizza Oven,4000,8000,1,8,1.3,"Industrial pizza cooking equipment for pizzerias and restaurants. High-temperature, high-capacity pizza preparation for commercial operations."
+Laundry & Cleaning Appliances,Clothes Dryer,Venting Dryer,1500,2500,1,3,1.5,Electric clothes drying equipment rare in Nigeria due to sunny weather. Seen in urban apartments where outdoor drying not feasible.
+Laundry & Cleaning Appliances,Clothes Dryer,Condenser Dryer,1800,3000,1,3,1.5,Premium clothes drying equipment for urban middle and upper-class homes. Advanced drying technology for indoor laundry completion.
+Laundry & Cleaning Appliances,Clothes Dryer,Washer-Dryer Combo,2000,3500,1,3,1.5,Combined washing and drying appliances for space-limited apartments. Compact solution where separate appliances not feasible.
+Laundry & Cleaning Appliances,Clothes Dryer,Industrial Dryer,3000,6000,2,6,2,"Commercial clothes drying equipment for laundromats, hotels, and commercial laundry services. High-capacity drying for business operations."
+Laundry & Cleaning Appliances,Dishwasher,Compact Countertop,1200,1800,0.5,2,1.5,"Small dishwashing appliances rare in Nigeria, seen in upscale homes. Automated dish cleaning for modern kitchen convenience."
+Laundry & Cleaning Appliances,Dishwasher,Full-size Dishwasher,1800,2500,1,2,1.5,"Large dishwashing appliances very rare, found in luxury homes and some restaurants. Complete automated dish cleaning systems."
+Laundry & Cleaning Appliances,Iron (Pressing Iron),Dry Iron,1000,1500,0.25,1,1.5,Basic pressing equipment widely used across Nigeria for clothing care. Essential household appliance for garment maintenance and appearance.
+Laundry & Cleaning Appliances,Iron (Pressing Iron),Steam Iron,1200,2000,0.25,1,1.5,Advanced ironing equipment providing better wrinkle removal with steam function. Popular in middle-class homes and commercial laundries.
+Laundry & Cleaning Appliances,Iron (Pressing Iron),Cordless Iron,800,1200,0.25,1,1.5,Rechargeable pressing equipment less common but premium option. Battery-powered operation for convenient cordless ironing.
+Laundry & Cleaning Appliances,Iron (Pressing Iron),Industrial Iron (Heavy),2000,4000,0.5,2,1.5,"Heavy-duty pressing equipment for hotels, tailoring shops, and uniform services. Commercial-grade durability for continuous professional use."
+Laundry & Cleaning Appliances,Iron (Pressing Iron) (Solar),DC Dry Iron (24/48V),300,600,0.5,2,2,Lightweight pressing equipment designed for solar power systems. Energy-efficient ironing compatible with solar battery systems.
+Laundry & Cleaning Appliances,Polisher,Floor Polisher,600,1200,1,3,1.3,"Electric floor maintenance equipment found in offices, schools, and hotels. Professional floor cleaning and polishing for commercial spaces."
+Laundry & Cleaning Appliances,Sewing Machine,Manual/Electric Hybrid,30,80,1,4,1,Traditional sewing equipment in tailoring shops across Nigeria. Basic clothing production and alteration services.
+Laundry & Cleaning Appliances,Sewing Machine,Industrial Electric,300,800,2,8,1.2,"Professional sewing equipment in commercial tailoring shops. High-speed, heavy-duty sewing for clothing production businesses."
+Laundry & Cleaning Appliances,Sewing Machine,Embroidery Machine,500,1200,2,6,1.3,Specialized sewing equipment for fashion design and branding shops. Decorative stitching and logo embroidery for custom clothing.
+Laundry & Cleaning Appliances,Steam Cleaner,Handheld Steam Cleaner,800,1200,0.25,1,1.3,Portable cleaning equipment for tiles and fabrics. Used in middle-class homes and professional cleaning services.
+Laundry & Cleaning Appliances,Steam Cleaner,Floor Steam Mop,1000,1500,0.25,1,1.3,"Floor cleaning equipment for upscale homes, hotels, and offices. Advanced floor sanitization using steam cleaning technology."
+Laundry & Cleaning Appliances,Vacuum Cleaner,Handheld Vacuum,100,300,0.25,1,1.2,Portable cleaning equipment used in cars and small households. Compact suction cleaning for vehicles and furniture.
+Laundry & Cleaning Appliances,Vacuum Cleaner,Upright Vacuum,400,1200,0.25,2,1.3,Standard household cleaning equipment popular in homes and offices. Comprehensive floor cleaning with motorized brush systems.
+Laundry & Cleaning Appliances,Vacuum Cleaner,Canister Vacuum,800,1600,0.25,2,1.3,Powerful cleaning equipment common in hotels and large offices. Higher suction capacity for commercial and residential deep cleaning.
+Laundry & Cleaning Appliances,Vacuum Cleaner,Robotic Vacuum,30,60,1,4,1,"Automated cleaning equipment rare in Nigeria, found only in premium households. Self-operating floor cleaning technology"
+Laundry & Cleaning Appliances,Vacuum Cleaner,Industrial Vacuum,1000,3000,0.5,4,1.5,"Heavy-duty cleaning equipment for hotels, event halls, and factories. Commercial-grade suction cleaning for large facilities."
+Laundry & Cleaning Appliances,Washing Machine,Manual (Non-Automatic),200,400,0.5,2,1.5,"Basic washing machines without spin cycle, common in rural areas and low-income homes. Requires manual water filling and draining."
+Laundry & Cleaning Appliances,Washing Machine,Semi-Automatic (Twin Tub),300,600,0.5,2,1.5,Most widespread washing machine type in Nigeria. Affordable option requiring manual water filling with separate wash and spin tubs.
+Laundry & Cleaning Appliances,Washing Machine,Fully Automatic (Top Load),500,1000,0.5,2,1.5,Convenient washing machines for urban homes with reliable water supply. Automated operation with minimal manual intervention.
+Laundry & Cleaning Appliances,Washing Machine,Fully Automatic (Front Load),800,2000,0.5,2,1.8,Premium washing machines offering gentle clothes care and water efficiency. Higher cost limits adoption to upscale homes.
+Laundry & Cleaning Appliances,Washing Machine,Industrial Washer,2000,5000,4,12,2,"Commercial washing equipment for hotels, hospitals, and commercial laundries. High-capacity washing for business laundry operations."
+Laundry & Cleaning Appliances,Washing Machine (Solar),Small DC Washer (4–6kg),200,400,1,2,2,Compact washing machines designed for solar power systems in rural households. Energy-efficient washing compatible with solar batteries.
+Laundry & Cleaning Appliances,Washing Machine (Solar),Large DC Washer (7–12kg),500,1000,1,2,2,Family-sized washing machines for solar-powered homes and off-grid estates. Higher capacity washing for larger households.
+Laundry & Cleaning Appliances,Water Extractor,Carpet/Water Vacuum,1000,2000,0.25,2,1.3,"Specialized cleaning equipment for water extraction from carpets and upholstery. Used in cleaning services, hotels, and large offices."
+Lighting & Small Power Devices,Chargers,Basic Phone Charger,3,15,2,6,1,"Universal mobile device charging equipment for smartphones from Tecno, Infinix, iPhone, and other brands. Essential daily-use accessory."
+Lighting & Small Power Devices,Chargers,Fast Charger (18–65W),18,65,2,6,1,High-speed charging equipment for modern Android and iPhone devices. Rapid charging technology for busy professionals and students
+Lighting & Small Power Devices,Chargers,Laptop Charger (45–120W),45,120,2,8,1,"Power adapters for laptop computers varying by brand and model. Dell, HP, MacBook, and Lenovo chargers with different power ratings."
+Lighting & Small Power Devices,Chargers,Multi-port USB Charger,10,60,2,8,1,"Charging stations for multiple devices simultaneously. Used in offices, homes, and public spaces for convenient device charging."
+Lighting & Small Power Devices,Clocks,Digital Alarm Clock,2,10,6,24,1,Electronic timekeeping devices for bedrooms and hotels. Basic time display with alarm functions for daily scheduling.
+Lighting & Small Power Devices,Clocks,Wall Clock (Battery/Electric),1,5,6,24,1,"Time display devices common in homes, schools, and offices. Essential timekeeping for scheduling and time awareness."
+Lighting & Small Power Devices,Extension/Adapters,Multi-plug Extension Box,5,15,4,12,1,"Common in homes, offices, shops."
+Lighting & Small Power Devices,Extension/Adapters,Surge Protector Extension,10,30,4,12,1,"Found in offices, tech setups."
+Lighting & Small Power Devices,Lamps,Rechargeable Lantern,2,10,2,12,1,"Common during outages; QASA, Elepaq brands."
+Lighting & Small Power Devices,Lamps,Desk/Study Lamp (LED),3,15,2,8,1,"Students, offices."
+Lighting & Small Power Devices,Lamps,Decorative Lamp/Chandelier,20,100,2,6,1,"Premium homes, hotels."
+Lighting & Small Power Devices,Lanterns,Rechargeable LED Lantern,3,10,2,8,1,Widely used during power outages.
+Lighting & Small Power Devices,Lanterns,Kerosene Lantern (Electric Wick Igniter),5,15,2,6,1,"Hybrid design, rare but still found in rural markets."
+Lighting & Small Power Devices,Lanterns (Solar),Portable Solar Lantern,3,10,4,12,1,"Affordable, rural use"
+Lighting & Small Power Devices,Light Bulbs,Incandescent (40–100W),40,100,4,12,1,"Old models, still found in rural homes."
+Lighting & Small Power Devices,Light Bulbs,CFL (Energy Saver),9,23,4,12,1,Widely used in Nigerian households.
+Lighting & Small Power Devices,Light Bulbs,LED Bulb (5–20W),5,20,4,12,1,"Current standard; used in homes, offices, streets."
+Lighting & Small Power Devices,Light Bulbs,Smart LED Bulb,7,20,4,12,1,Wi-Fi/app control; mostly in premium homes.
+Lighting & Small Power Devices,Light Bulbs,Solar DC Bulb,3,15,4,12,1,Most common lighting
+Lighting & Small Power Devices,Other Small Devices,Emergency Light (LED Tube),5,20,2,8,1,Common backup in Nigerian homes.
+Lighting & Small Power Devices,Other Small Devices,Camping Light,5,30,2,8,1,"Outdoor, village markets."
+Lighting & Small Power Devices,Other Small Devices,Mosquito Zapper Lamp,5,20,4,10,1,"Used in homes, rural communities to fight mosquitoes."
+Lighting & Small Power Devices,Other Small Devices,Night Light (Kids Room),1,5,6,12,1,"Found in nurseries, children’s rooms."
+Lighting & Small Power Devices,Outdoor Lighting,Solar Garden Light,1,10,6,12,1,"Used in compounds, pathways."
+Lighting & Small Power Devices,Outdoor Lighting,Security Floodlight (LED),20,200,6,12,1,"Common in homes, streets, businesses."
+Lighting & Small Power Devices,Outdoor Lighting,Halogen Floodlight,150,500,4,12,1,"Older tech, used in sports fields, events."
+Lighting & Small Power Devices,Outdoor Lighting,Street Light (Solar LED),30,120,10,12,1,Increasingly adopted in Nigerian towns.
+Lighting & Small Power Devices,Power Banks,"Small (5,000–10,000mAh)",5,15,2,6,1,"Personal daily use, fits pocket."
+Lighting & Small Power Devices,Power Banks,"Medium (20,000mAh)",10,25,2,6,1,"Most common in Nigeria (Oraimo, Anker)."
+Lighting & Small Power Devices,Power Banks,"Large (30,000–50,000mAh)",20,40,2,6,1,"Students, business people, rural users."
+Lighting & Small Power Devices,Power Banks,"Ultra (50,000mAh–100,000mAh)",40,100,2,6,1,"Rare, premium; can charge laptops and multiple phones."
+Lighting & Small Power Devices,Torches/Flashlights,Rechargeable Torch,3,10,2,6,1,"Widely used in outages, villages."
+Lighting & Small Power Devices,Torches/Flashlights,Heavy-duty LED Flashlight,10,50,2,6,1,"Security guards, outdoor use."
+Lighting & Small Power Devices,Torches/Flashlights,Headlamp (LED),2,10,2,6,1,"Used by mechanics, engineers, hunters."
+Mobile & Personal Devices,Bluetooth Devices,Bluetooth Earbuds,1,5,2,10,1,Most common mobile accessory.
+Mobile & Personal Devices,Bluetooth Devices,Bluetooth Headphones,3,10,2,10,1,"For music lovers, gamers."
+Mobile & Personal Devices,Bluetooth Devices,Bluetooth Speaker (Mini),5,15,2,8,1,"Used in homes, schools, hangouts."
+Mobile & Personal Devices,Bluetooth Devices,Bluetooth Speaker (Large),20,60,2,8,1,"Parties, outdoor gatherings."
+Mobile & Personal Devices,E-Readers,Kindle/Nook,3,10,2,8,1,"Rare in Nigeria, used by book lovers."
+Mobile & Personal Devices,Portable Consoles,Nintendo Switch,10,20,1,6,1,Gaming; middle-class youth.
+Mobile & Personal Devices,Portable Consoles,PlayStation Portable (PSP),5,15,1,6,1,Legacy handheld gaming.
+Mobile & Personal Devices,Power Bank,"Small (5,000 - 10,000mAh)",5,10,12,12,4,1
+Mobile & Personal Devices,Power Bank,"Medium (10,000 - 20,000mAh)",10,20,12,12,4,1
+Mobile & Personal Devices,Power Bank,"Large (20,000 - 40,000mAh)",20,40,12,12,4,1
+Mobile & Personal Devices,Power Bank,"Extra Large (50,000mAh)",40,80,12,12,4,1
+Mobile & Personal Devices,Power Bank,"Ultra Capacity (60,000 - 100,000mAh)",60,150,12,12,4,1
+Mobile & Personal Devices,Power Bank,"Fitness Band (Fitbit, Xiaomi)",1,3,24,24,8,1
+Office & Computing Devices,Desktop PC,Basic Office Desktop,100,250,4,10,1.3,"Used in cybercafés, offices, schools; brands: Dell, HP, Lenovo."
+Office & Computing Devices,Desktop PC,Gaming Desktop,300,800,2,8,1.5,"Heavy GPU usage, common among gamers & design professionals."
+Office & Computing Devices,Desktop PC,Workstation (CAD/3D),400,1000,2,10,1.5,"High-power; engineers, architects, video editors."
+Office & Computing Devices,Laptop PC,Netbook/Chromebook,20,50,4,12,1.1,Lightweight; used by students.
+Office & Computing Devices,Laptop PC,Ultrabook,30,60,4,12,1.1,"Slim laptops (Dell XPS, MacBook Air); business/urban users."
+Office & Computing Devices,Laptop PC,Standard Laptop,50,120,4,12,1.1,"Most common (HP, Dell, Acer)."
+Office & Computing Devices,Laptop PC,Gaming Laptop,120,250,2,8,1.3,High-performance; gamers & designers.
+Office & Computing Devices,Laptop PC,MacBook Pro,40,120,4,12,1.1,"Creative professionals, upper-class users."
+Office & Computing Devices,Monitors,LCD Monitor (19–24 Inches),20,50,4,12,1.1,Widely used in offices & homes.
+Office & Computing Devices,Monitors,LED Monitor (24–32 Inches),25,80,4,12,1.1,Standard modern type.
+Office & Computing Devices,Monitors,4K/Ultra-Wide Monitor,40,120,2,8,1.2,Premium workstations & gamers.
+Office & Computing Devices,Networking Devices,Wi-Fi Router,5,20,12,24,1.1,"Homes, offices, cybercafés."
+Office & Computing Devices,Networking Devices,Modem (4G/5G),3,10,8,24,1,Common for mobile internet.
+Office & Computing Devices,Networking Devices,Switch/Hub,10,40,12,24,1.1,"Offices, server rooms."
+Office & Computing Devices,Networking Devices,Server (Small Business),200,600,8,24,1.5,Corporate/IT firms.
+Office & Computing Devices,Projectors (Office),Standard Projector,150,300,1,4,1.2,"Schools, offices, churches."
+Office & Computing Devices,Projectors (Office),Short-Throw Projector,200,400,1,4,1.3,Premium boardrooms.
+Office & Computing Devices,Scanners,Flatbed Scanner,20,50,0.25,2,1.1,"Offices, schools."
+Office & Computing Devices,Scanners,Document Feeder Scanner,30,80,0.25,2,1.2,"Used in banks, corporate offices."
+Office & Computing Devices,Telecommunication,Landline Phone,2,10,2,6,1,Legacy devices in offices.
+Office & Computing Devices,Telecommunication,IP Phone (VoIP),3,15,2,8,1,"Found in call centers, offices."
+Office & Computing Devices,UPS (Backup Power),Small (600–1000VA),50,100,0.25,1,1.5,Homes & small offices.
+Office & Computing Devices,UPS (Backup Power),Medium (1500–2000VA),100,300,0.25,1,1.5,"Offices, schools."
+Office & Computing Devices,UPS (Backup Power),Large (3–5KVA),300,1000,0.25,1,1.5,"Businesses, data centers."
+Office Appliances,Cash Register,Basic Register,20,50,2,10,1,"Used in shops, supermarkets, and retail businesses."
+Office Appliances,Fax Machine,Standard Fax,15,30,0.25,2,1,Rare today; still used in banks and some offices.
+Office Appliances,Laminating Machine,A4 Laminator,200,400,0.25,2,1.2,"Found in schools, cybercafés, and offices."
+Office Appliances,Laminating Machine,Industrial Laminator,1000,2000,1,4,1.5,Found in big printing shops and commercial centers.
+Office Appliances,Photocopier,Small Office Copier,600,1200,1,6,1.3,"Found in schools, business centers, and small offices."
+Office Appliances,Photocopier,Heavy-Duty Copier,1500,3000,2,10,1.5,"Found in printing presses, government offices, universities."
+Office Appliances,Shredder,Personal Shredder,100,300,0.25,2,1.2,Used in small offices for documents.
+Office Appliances,Shredder,Heavy-Duty Shredder,500,1000,1,4,1.3,"Common in banks, ministries, and corporate offices."
+Personal Care & Grooming Appliances,Electric Toothbrush,Basic Rechargeable,1,5,0.1,0.1,1,Growing popularity in urban households.
+Personal Care & Grooming Appliances,Electric Toothbrush,Premium Smart Brush,2,10,0.1,0.1,1,"Bluetooth-enabled, rare in Nigeria."
+Personal Care & Grooming Appliances,Facial Steamer,Small Portable,100,300,0.25,1,1,Used at home for skincare.
+Personal Care & Grooming Appliances,Facial Steamer,Professional Salon Unit,300,600,0.25,1,1,Widely used in beauty parlors for facials.
+Personal Care & Grooming Appliances,Hair Clipper/Trimmer,Corded,10,30,0.25,1,1.2,"Widely used in Nigerian barbershops; brands like Wahl, Andis."
+Personal Care & Grooming Appliances,Hair Clipper/Trimmer,Cordless Rechargeable,5,20,0.25,1,1.2,Popular in rural homes with unreliable power.
+Personal Care & Grooming Appliances,Hair Clipper/Trimmer,Professional Heavy-duty,20,50,0.5,2,1.5,Used in salons for continuous service.
+Personal Care & Grooming Appliances,Hair Curler,Basic Curling Iron,200,500,0.25,0.5,1.2,For personal beauty use.
+Personal Care & Grooming Appliances,Hair Curler,Professional Multi-barrel,500,1000,0.5,1,1.2,Popular in fashion/bridal salons.
+Personal Care & Grooming Appliances,Hair Dryer,Handheld (Basic),800,1200,0.25,1,1.5,Common in salons; affordable models.
+Personal Care & Grooming Appliances,Hair Dryer,Professional Salon Grade,1200,2000,0.5,2,1.5,Stronger airflow; used in busy salons.
+Personal Care & Grooming Appliances,Hair Dryer,Travel/Compact,500,800,0.25,0.5,1.5,"Foldable, low wattage, used in hotels or travel."
+Personal Care & Grooming Appliances,Hair Straightener,Basic Flat Iron,150,400,0.25,0.5,1.2,Used by ladies for hair styling at home.
+Personal Care & Grooming Appliances,Hair Straightener,Professional Salon Grade,400,800,0.5,1,1.2,Stronger ceramic plates; used in salons.
+Personal Care & Grooming Appliances,Massage Devices,Handheld Massager,20,60,0.25,0.5,1.2,Used for relaxation in homes.
+Personal Care & Grooming Appliances,Massage Devices,Massage Chair (full-body),150,300,0.5,2,2,"Rare, found in spas, luxury homes."
+Personal Care & Grooming Appliances,Nail Care Devices,Nail Drill,20,40,0.25,1,1,Used in nail salons for shaping acrylic nails.
+Personal Care & Grooming Appliances,Nail Care Devices,UV Nail Lamp,12,48,0.25,1,1,Popular in salons for curing gel polish.
+Personal Care & Grooming Appliances,Other Grooming,Electric Manicure Set,10,30,0.25,0.25,1,"Nail salons, rare in homes."
+Personal Care & Grooming Appliances,Other Grooming,Hair Removal Device (Laser),50,150,0.25,0.25,1,Rare; used in professional beauty clinics.
+Personal Care & Grooming Appliances,Shaver/Trimmer,Electric Foil Shaver,5,15,0.1,0.5,1,Common for facial grooming.
+Personal Care & Grooming Appliances,Shaver/Trimmer,Rotary Shaver,5,20,0.1,0.5,1,Premium models like Philips; mostly urban.
+Personal Care & Grooming Appliances,Shaver/Trimmer,Beard Trimmer,5,15,0.1,0.5,1,"Battery/USB powered, common in younger men."
+Refrigeration Appliances,Cold Room Unit,"Small (Walk-in, 5–10m³)",1000,3000,24,24,3,Small frozen food shops.
+Refrigeration Appliances,Cold Room Unit,Large (20–50m³),3000,6000,24,24,3,"Large businesses, markets, cold storage depots."
+Refrigeration Appliances,Deep Freezer,Chest Freezer (100–200L),100,250,6,24,3,Common for frozen food storage in homes.
+Refrigeration Appliances,Deep Freezer,Large Chest (300–500L),200,400,6,24,3,Widely used in Nigerian shops and small eateries.
+Refrigeration Appliances,Deep Freezer,Upright Freezer (200–400L),200,500,6,24,3,Space-saving; used in restaurants and homes.
+Refrigeration Appliances,Deep Freezer,Industrial Freezer,500,1500,12,24,3,"Hotels, frozen food businesses."
+Refrigeration Appliances,Deep Freezer,"Solar Chest Freezer (100–200L, 24/48V)",100,200,6,20,1.5,"Rural shops, cold drinks"
+Refrigeration Appliances,Deep Freezer,"Solar Large Deep Freezer (250L+, 48V)",200,400,6,20,1.5,Fish/meat storage in rural areas
+Refrigeration Appliances,Ice Maker Machine,Portable,100,200,2,8,3,"Small parties, home use."
+Refrigeration Appliances,Ice Maker Machine,Medium,200,400,4,12,3,"Restaurants, hotels."
+Refrigeration Appliances,Ice Maker Machine,Commercial Industrial,500,1500,12,24,3,"Ice businesses, big bars."
+Refrigeration Appliances,Portable Coolers,Thermoelectric Cooler,40,80,2,6,1.2,Used in cars and outdoor picnics; keeps drinks cool.
+Refrigeration Appliances,Portable Coolers,Mini Car Fridge,50,100,2,6,1.2,Runs on car adapter; popular with travelers and small vendors.
+Refrigeration Appliances,Refrigerator,Mini/Compact (50–100L),60,120,6,24,3,"Small offices, hostels, hotel rooms; brands like Midea, Hisense."
+Refrigeration Appliances,Refrigerator,Small (100–150L),80,150,6,24,3,Used in 1–2 person households.
+Refrigeration Appliances,Refrigerator,Medium (200–300L),100,250,6,24,3,"Standard family fridges (LG, Samsung, Scanfrost)."
+Refrigeration Appliances,Refrigerator,Large (400–500L),200,400,6,24,3,"Family-sized, common in middle-class homes."
+Refrigeration Appliances,Refrigerator,Premium (Side-by-Side),300,600,6,24,3,Luxury homes; includes water/ice dispensers.
+Refrigeration Appliances,Refrigerator,Commercial Display Fridge,300,800,8,24,3,"Supermarkets, restaurants for drinks."
+Refrigeration Appliances,Refrigerator,"Small DC Fridge (50–100L, 12/24V)",40,100,8,24,1.5,"For homes, rural shops"
+Refrigeration Appliances,Refrigerator,"Medium DC Fridge (150–200L, 24/48V)",100,200,8,24,1.5,Most common household solar fridge
+Refrigeration Appliances,Refrigerator,"Large DC Fridge (250L+, 48V)",200,300,8,24,1.5,"Hotels, clinics, supermarkets"
+Refrigeration Appliances,Wine Cooler/Chiller,Small (6–12 bottles),50,120,6,24,3,"Premium homes, lounges."
+Refrigeration Appliances,Wine Cooler/Chiller,Medium (20–40 bottles),100,200,6,24,3,"Restaurants, bars."
+Refrigeration Appliances,Wine Cooler/Chiller,Large (50+ bottles),150,300,6,24,3,"Hotels, luxury homes."
+Security & Safety Appliances,Access Control,Biometric Door Lock,5,15,12,24,1,"Used in offices, banks, smart homes."
+Security & Safety Appliances,Access Control,Smart Card Reader,5,15,12,24,1,"Installed in hotels, offices."
+Security & Safety Appliances,Access Control,Video Doorbell,5,20,2,8,1,"Rare, used in modern smart homes."
+Security & Safety Appliances,Alarm Systems,Burglar Alarm (Basic),5,15,12,24,1,"Installed in shops, banks, offices."
+Security & Safety Appliances,Alarm Systems,Smart Alarm System,10,30,12,24,1,"Internet-enabled, more urban."
+Security & Safety Appliances,CCTV Cameras,Analog CCTV,5,10,12,24,1,"Common in shops, homes, churches."
+Security & Safety Appliances,CCTV Cameras,IP Camera (Basic),5,15,12,24,1,Used in homes/offices with internet access.
+Security & Safety Appliances,CCTV Cameras,Dome Camera (Indoor),5,12,12,24,1,"Found in offices, banks."
+Security & Safety Appliances,CCTV Cameras,Bullet Camera (Outdoor),10,20,12,24,1,"Used in streets, estates, gates."
+Security & Safety Appliances,CCTV Cameras,PTZ Camera (Motorized),15,40,12,24,1,"High-end, movable, used in large compounds."
+Security & Safety Appliances,Electric Fence,Fence Energizer (Small),10,50,12,24,2,Homes and small compounds.
+Security & Safety Appliances,Electric Fence,Fence Energizer (Large),50,200,12,24,2,"Estates, commercial facilities."
+Security & Safety Appliances,Fire Safety,Smoke Detector (Standalone),1,5,12,24,1,"Installed in kitchens, hotels."
+Security & Safety Appliances,Fire Safety,Smoke Detector (Smart),2,8,12,24,1,Wi-Fi connected; rare in Nigeria.
+Security & Safety Appliances,Fire Safety,Fire Alarm Control Panel,20,100,12,24,1,"Used in large buildings, malls."
+Security & Safety Appliances,Intercom Systems,Wired Intercom Unit,5,15,2,8,1,"Common in offices, hotels."
+Security & Safety Appliances,Intercom Systems,Wireless Intercom,5,20,2,8,1,Rare but growing in smart homes.
+Security & Safety Appliances,Motion Sensors,,2,10,12,24,1,"Security lights, alarms."
+Security & Safety Appliances,Motion Sensors,Smart Motion Detector,5,15,12,24,1,Connected to CCTV or smart systems.
+Security & Safety Appliances,Other Devices,Siren (Emergency),10,100,0.1,0.5,1,"Used in police, fire trucks, compounds."
+Security & Safety Appliances,Other Devices,Floodlight (Security Light),50,200,6,12,1,Outdoor security lighting.
+Security & Safety Appliances,Other Devices,Solar Security Light,2,20,6,12,0,"Standalone solar; widely used in estates, villages."
+Small Kitchen Appliances,Air Fryer,Compact (2–3L),800,1200,0.5,2,1.3,"Urban homes, health-conscious."
+Small Kitchen Appliances,Air Fryer,Standard (4–5L),1200,1800,0.5,2,1.3,Common size for families.
+Small Kitchen Appliances,Air Fryer,Large (6L+),1800,2200,0.5,2,1.3,Larger households; restaurants.
+Small Kitchen Appliances,Blender,Personal Blender,200,400,0.25,1,1.2,"Smoothies, baby food; students, small kitchens."
+Small Kitchen Appliances,Blender,Standard Household Blender,300,700,0.25,1,1.2,"Common in every Nigerian kitchen; e.g., Binatone, Kenwood."
+Small Kitchen Appliances,Blender,High-Performance Blender,800,1500,0.25,1,1.3,"Premium; used in juice bars, restaurants, and homes."
+Small Kitchen Appliances,Blender,Small DC Blender,50,150,0.5,2,1.2,Homes & kiosks
+Small Kitchen Appliances,Coffee Maker,Drip Coffee Maker,600,1000,0.5,2,1.2,"Offices, homes."
+Small Kitchen Appliances,Coffee Maker,Espresso Machine,1000,2000,0.25,1,1.3,"Cafés, premium homes."
+Small Kitchen Appliances,Coffee Maker,Capsule Coffee Machine,1200,1500,0.25,1,1.2,Rare in Nigeria; premium households.
+Small Kitchen Appliances,Cooker,Box Solar Cooker,100,200,2,6,1,Uses direct sunlight & insulation
+Small Kitchen Appliances,Cooker,Parabolic Solar Cooker,200,400,2,6,1,High-heat outdoor cooking
+Small Kitchen Appliances,Electric Grill,Contact Grill,1000,1500,0.5,2,1.2,"Urban kitchens, fast food joints."
+Small Kitchen Appliances,Electric Grill,Open Grill,1200,2000,0.5,2,1.2,"Homes, restaurants."
+Small Kitchen Appliances,Electric Grill,Panini Press,800,1200,0.5,2,1.2,"Sandwich shops, cafes."
+Small Kitchen Appliances,Electric Kettle,Standard (1–1.7L),1500,2000,0.25,1,1,"Widely used in homes for boiling water; brands: Binatone, Century, Scarlett."
+Small Kitchen Appliances,Electric Kettle,Travel Kettle (0.5–1L),600,1000,0.25,1,1,Portable; students and travelers.
+Small Kitchen Appliances,Electric Kettle,Smart/Temperature Control,1500,2200,0.25,1,1,"Premium; urban homes, offices."
+Small Kitchen Appliances,Electric Pressure Cooker,Compact (3L),500,800,0.5,2,1.3,"Students, small households."
+Small Kitchen Appliances,Electric Pressure Cooker,Standard (5L),700,1200,0.5,2,1.3,Typical family usage.
+Small Kitchen Appliances,Electric Pressure Cooker,Large (6–8L),1000,1500,0.5,2,1.3,"Larger families, restaurants."
+Small Kitchen Appliances,Hot Plate,Single Coil Electric Cooker ,800,1200,1,2,2,Common single-burner design
+Small Kitchen Appliances,Hot Plate,Double Coil Electric Cooker ,1500,2500,1,2,2,"Two burners, higher draw"
+Small Kitchen Appliances,Hot Plate,Infrared Hot Plate ,1200,2000,1,2,2,"Heats with infrared coil, faster"
+Small Kitchen Appliances,Hot Plate,Induction Cooker ,1000,2000,1,2,2,More efficient but surge heavy
+Small Kitchen Appliances,Hot Plate (Solar),Solar DC Hot Plate (24V / 48V),500,1500,1,2,2,Designed for direct solar DC use
+Small Kitchen Appliances,Juicer,Citrus Juicer,30,100,0.25,1,1.2,Small kitchens; fresh juice.
+Small Kitchen Appliances,Juicer,Centrifugal Juicer,400,800,0.25,1,1.3,"Popular in juice bars, restaurants."
+Small Kitchen Appliances,Juicer,Cold-Press (Masticating),150,300,0.25,1,1.2,Premium; health-conscious users.
+Small Kitchen Appliances,Mixer,Hand Mixer,150,300,0.25,1,1.2,Common in homes for baking.
+Small Kitchen Appliances,Mixer,Stand Mixer,300,800,0.25,1,1.2,"Used in bakeries, restaurants."
+Small Kitchen Appliances,Rice Cooker,Small (1–2L),300,500,0.5,2,1.2,"Students, small families."
+Small Kitchen Appliances,Rice Cooker,Medium (3–5L),500,900,0.5,2,1.2,Typical Nigerian family size.
+Small Kitchen Appliances,Rice Cooker,Large (5L+),900,1500,0.5,2,1.2,"Parties, large families."
+Small Kitchen Appliances,Rice Cooker (Solar),Solar Rice Cooker,200,400,0.5,2,1.5,DC powered
+Small Kitchen Appliances,Toaster,2-Slice Toaster,700,1000,0.25,0.5,1.2,"Basic homes, students."
+Small Kitchen Appliances,Toaster,4-Slice Toaster,1000,1500,0.25,0.5,1.2,"Larger families, hotels."
+Small Kitchen Appliances,Toaster,Sandwich Maker,700,1200,0.25,0.5,1.2,Common in urban households.
+Tools & Workshop Equipment,Air Compressors,Small Portable,250,1000,0.5,2,1.5,"Car repair shops, vulcanizers."
+Tools & Workshop Equipment,Air Compressors,Medium Garage Type,1000,3000,1,4,1.5,"Workshops, filling stations."
+Tools & Workshop Equipment,Air Compressors,Industrial Air Compressor,3000,10000,2,6,2,Heavy factories and construction.
+Tools & Workshop Equipment,Cutting Machines,Small Electric Saw,500,1500,0.5,2,1.5,"Carpentry shops, home DIY."
+Tools & Workshop Equipment,Cutting Machines,Circular Saw,1200,2000,1,3,1.5,Common in woodworking shops.
+Tools & Workshop Equipment,Cutting Machines,Industrial Cutting Machine,2000,5000,1,4,2,Factories and industrial projects.
+Tools & Workshop Equipment,Drills,Hand Drill (corded),250,500,0.5,2,1.2,"Common in workshops, small repairs."
+Tools & Workshop Equipment,Drills,Hammer Drill (heavy duty),600,1200,0.5,2,1.5,Used in construction and borehole drilling.
+Tools & Workshop Equipment,Grinders,"Small Angle Grinder (4.5"")",500,800,0.5,2,1.5,"Popular in metal workshops, mechanic shops."
+Tools & Workshop Equipment,Grinders,"Large Angle Grinder (7–9"")",1000,2000,0.5,2,1.5,Heavy-duty industrial use.
+Tools & Workshop Equipment,Other Workshop Tools,Heat Gun,1000,2000,0.5,2,1.2,"Used for paint removal, shrinking plastics."
+Tools & Workshop Equipment,Other Workshop Tools,Glue Gun,40,100,1,4,1,"DIY, crafting, repairs."
+Tools & Workshop Equipment,Other Workshop Tools,Industrial Lathe Machine,5000,20000,2,8,2,Heavy machine shops.
+Tools & Workshop Equipment,Other Workshop Tools,CNC Machine (basic),2000,6000,2,6,1.5,"Manufacturing, advanced fabrication."
+Tools & Workshop Equipment,Polishing & Sanding Tools,Orbital Sander,200,400,0.5,2,1.2,Furniture finishing.
+Tools & Workshop Equipment,Polishing & Sanding Tools,Belt Sander,600,1200,0.5,2,1.5,Woodwork shops.
+Tools & Workshop Equipment,Sewing Machines,Manual Sewing Machine (with motor),70,120,2,6,1,Common in tailoring shops.
+Tools & Workshop Equipment,Sewing Machines,Electric Sewing Machine,100,200,2,6,1,"Modern, compact; home use."
+Tools & Workshop Equipment,Sewing Machines,Industrial Sewing Machine,250,600,4,8,1.2,Large-scale tailoring and fashion houses.
+Tools & Workshop Equipment,Welding Machines,Arc Welder (small portable),2000,5000,1,4,2.5,Popular among roadside welders.
+Tools & Workshop Equipment,Welding Machines,Industrial Arc Welder,5000,10000,2,6,2.5,Used in heavy construction.
+Water Systems & Related Appliances,Borehole Systems,Submersible Pump (0.5–1HP),400,1200,1,3,3,Installed in boreholes; common in Nigerian homes.
+Water Systems & Related Appliances,Borehole Systems,Submersible Pump (2–3HP),1500,3000,1,3,3,Large-scale water supply in communities and estates.
+Water Systems & Related Appliances,Electric Water Heaters,Instant Shower Heater,2000,4000,0.25,1,1.5,Common in hotels and modern homes.
+Water Systems & Related Appliances,Electric Water Heaters,Storage Tank Heater (30–100L),1500,3000,0.5,2,1.5,Found in larger urban homes.
+Water Systems & Related Appliances,Electric Water Heaters,Solar Water Heater,0,100,4,8,0,Uses sunlight; minimal electric consumption.
+Water Systems & Related Appliances,Electric Water Heaters,Immersion Rod,1000,1500,0.25,1,1.5,"Low-cost, used in buckets; risky but popular in low-income homes."
+Water Systems & Related Appliances,Other Water Devices,Humidifier,20,50,2,8,1,Rare; used in AC rooms and offices.
+Water Systems & Related Appliances,Other Water Devices,Dehumidifier,200,600,2,8,2,Used in coastal/rainy areas to reduce dampness.
+Water Systems & Related Appliances,Other Water Devices,Water Fountain (Decorative),20,100,1,6,1.2,"Found in hotels, gardens, luxury homes."
+Water Systems & Related Appliances,Water Dispensers,Standing Cold-only,80,150,2,8,1.5,Cheaper; found in schools and small offices.
+Water Systems & Related Appliances,Water Dispensers,Tabletop Dispenser (Hot/Cold),500,800,1,6,1.5,"Common in offices, schools, urban homes."
+Water Systems & Related Appliances,Water Dispensers,Standing Dispenser (Hot/Cold),500,1000,2,8,1.5,Widespread in offices and shops.
+Water Systems & Related Appliances,Water Dispensers,Premium Dispenser (with fridge),800,1200,2,8,1.5,Luxury units in urban homes/offices.
+Water Systems & Related Appliances,Water Heater (Solar),Instant DC Heater,1000,2000,0.5,2,2,"Tankless, quick heating"
+Water Systems & Related Appliances,Water Heater (Solar),"Solar Storage Tank (50–200L, hybrid)",500,1500,1,4,2,Uses solar thermal + DC
+Water Systems & Related Appliances,Water Pumps,Small Domestic Pump (0.5HP),300,400,0.25,2,3,Used for overhead tank filling in small homes.
+Water Systems & Related Appliances,Water Pumps,Medium Pump (1HP),750,1000,0.5,3,3,"Common in duplex homes, borehole systems."
+Water Systems & Related Appliances,Water Pumps,Large Pump (1.5–2HP),1200,2500,1,4,3,"Used in estates, commercial water supply."
+Water Systems & Related Appliances,Water Purifiers,Electric UV Purifier,20,60,1,6,1,Found in health-conscious urban homes.
+Water Systems & Related Appliances,Water Purifiers,Reverse Osmosis System,30,100,2,8,1,Used in urban homes and offices.
+Water Systems & Related Appliances,Water Purifiers,Portable Water Filter (USB-powered),5,15,1,4,1,"Rare, used during travel or emergencies."

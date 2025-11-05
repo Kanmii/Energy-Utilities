@@ -1,0 +1,10 @@
+Appliance,Type,Power_Rating_W,Usage_Hours,Quantity
+Standing Fan,Rechargeable Standing Fan,5,8,1
+LED Bulb,LED Light Bulb,10,12,4
+Television,Smart TV,100,6,1
+Refrigerator,Energy Efficient Fridge,150,24,1
+Air Conditioner,Inverter AC,1000,8,1
+Laptop,Office Laptop,50,8,1
+Phone Charger,Mobile Charger,5,4,2
+Router,WiFi Router,10,24,1
+

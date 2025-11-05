@@ -1,0 +1,121 @@
+# Unified Solar Platform Requirements
+# Complete dependencies for the Solar Capstone project
+# FastAPI Backend + Streamlit Frontend + All Agents + RAG System
+
+# Core Framework
+pandas
+numpy
+plotly
+fastapi
+uvicorn[standard]
+streamlit
+pydantic
+pydantic-settings
+python-dotenv
+
+# Data Processing and Analysis
+pandas
+numpy
+scikit-learn
+xgboost
+matplotlib
+seaborn
+plotly
+
+# LangChain and LangGraph
+langchain
+langchain-community
+langchain-groq
+langchain-cohere
+langchain-huggingface
+langgraph
+
+# MCP (Model Context Protocol)
+mcp
+mcp-server
+mcp-client
+
+# LLM Providers
+groq
+cohere
+huggingface-hub
+replicate
+openai
+
+# NLP and Text Processing
+spacy
+nltk
+transformers
+torch
+sentence-transformers
+tokenizers
+fuzzywuzzy
+python-Levenshtein
+
+# RAG System - Document Processing
+PyPDF2
+pdfplumber
+python-docx
+beautifulsoup4
+openpyxl
+python-pptx
+lxml
+html5lib
+
+# Web Search and APIs
+requests
+aiohttp
+httpx
+duckduckgo-search
+tavily-python
+serpapi
+
+# Database and Storage
+pymongo
+motor
+mongoengine
+sqlalchemy
+
+# Weather and Geographic APIs
+geopy
+requests-oauthlib
+
+# Email and Communication
+email-validator
+
+# HTTP and Async
+asyncio
+
+# Utilities
+python-multipart
+jinja2
+python-jose[cryptography]
+passlib[bcrypt]
+psutil
+schedule
+pathlib2
+tqdm
+
+# Development and Testing
+pytest
+pytest-asyncio
+black
+flake8
+mypy
+
+# Optional: Advanced Features
+redis
+celery
+prometheus-client
+
+# RAG System - Advanced Processing (Optional)
+# PyMuPDF
+# pytesseract
+# Pillow
+# speechrecognition
+# pydub
+# opencv-python
+
+# Communication (Optional - No longer needed)
+# twilio
+# python-telegram-bot

@@ -1,0 +1,55 @@
+{
+  "mcp_server": {
+    "name": "solar-system-mcp",
+    "version": "1.0.0",
+    "description": "MCP Server for Solar System Tools",
+    "capabilities": {
+      "tools": true,
+      "resources": true,
+      "logging": true
+    }
+  },
+  "tools": {
+    "calculate_solar_system": {
+      "description": "Calculate solar system requirements",
+      "enabled": true
+    },
+    "get_appliance_data": {
+      "description": "Get appliance information from database",
+      "enabled": true
+    },
+    "get_component_recommendations": {
+      "description": "Get component recommendations",
+      "enabled": true
+    },
+    "get_weather_data": {
+      "description": "Get weather and solar data",
+      "enabled": true
+    },
+    "estimate_costs": {
+      "description": "Estimate solar system costs",
+      "enabled": true
+    }
+  },
+  "resources": {
+    "solar://appliances": {
+      "description": "Solar appliances database",
+      "enabled": true
+    },
+    "solar://components": {
+      "description": "Solar components database",
+      "enabled": true
+    },
+    "solar://weather": {
+      "description": "Weather and solar data",
+      "enabled": true
+    }
+  },
+  "data_sources": {
+    "appliances_csv": "data/interim/cleaned/appliances_cleaned.csv",
+    "solar_panels_csv": "data/interim/cleaned/synthetic_solar_panels_synth.csv",
+    "batteries_csv": "data/interim/cleaned/synthetic_batteries_synth.csv",
+    "inverters_csv": "data/interim/cleaned/synthetic_inverters_synth.csv",
+    "controllers_csv": "data/interim/cleaned/synthetic_charge_controllers_synth.csv"
+  }
+}

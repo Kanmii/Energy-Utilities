@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  streamlit:
+    build: ./frontend/streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./frontend/streamlit:/app
+    command: streamlit run Home.py --server.port 8501 --server.address 0.0.0.0
+    depends_on:
+      - fastapi
+
+networks:
+  default:
+    name: solar_platform
