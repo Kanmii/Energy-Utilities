@@ -78,16 +78,16 @@ class SystemRecommendation:
     installation_notes: List[str]
     maintenance_requirements: List[str]
 
-class AISolarIntelligenceAgent:
-    """🧠 AI-Powered Solar Intelligence Agent
+class BrandIntelligenceAgent:
+    """AI-Powered Solar Intelligence Agent
     
     Advanced AI system that combines multiple AI capabilities:
-    - 🧠 Multi-Modal AI: Processes text, images, and data intelligently
-    - 🔮 Predictive AI: Predicts energy needs and market trends
-    - 🎯 Learning AI: Continuously learns and improves from interactions
-    - ⚡ Optimization AI: Optimizes systems for cost and performance
-    - 💬 Conversational AI: Provides expert-level solar consultations
-    - 📊 Market Intelligence AI: Analyzes market trends and pricing
+    - Multi-Modal AI: Processes text, images, and data intelligently
+    - Predictive AI: Predicts energy needs and market trends
+    - Learning AI: Continuously learns and improves from interactions
+    - Optimization AI: Optimizes systems for cost and performance
+    - Conversational AI: Provides expert-level solar consultations
+    - Market Intelligence AI: Analyzes market trends and pricing
     
     AI Models:
     - ML Models: For data-driven component scoring and recommendations
@@ -99,24 +99,69 @@ class AISolarIntelligenceAgent:
     """
     
     def __init__(self):
-        self.agent_name = "AISolarIntelligenceAgent"
+        self.agent_name = "BrandIntelligenceAgent"
         self.version = "3.0.0"  # AI-Enhanced Version
         self.components_df = None
         self.ml_models = {}
         self.scalers = {}
         
-        # 🧠 AI Learning Engine
+    async def analyze_brand(self, brand_name: str) -> Dict[str, Any]:
+        """Analyze a solar brand with AI insights"""
+        try:
+            # Filter components for this brand
+            brand_components = self.components_df[
+                self.components_df['brand'].str.lower() == brand_name.lower()
+            ] if self.components_df is not None else pd.DataFrame()
+            
+            # Get brand metrics
+            brand_score = self.brand_scores.get(brand_name, {})
+            
+            # Basic brand analysis
+            analysis = {
+                'brand': brand_name,
+                'component_count': len(brand_components),
+                'quality_score': brand_score.get('quality_score', 0.0),
+                'warranty_score': brand_score.get('warranty_score', 0.0),
+                'efficiency_score': brand_score.get('efficiency_score', 0.0),
+                'price_consistency': brand_score.get('price_consistency', 0.0),
+                'composite_score': brand_score.get('composite_score', 0.0),
+                'available_products': brand_components['component_type'].unique().tolist() if not brand_components.empty else [],
+                'market_position': self._determine_market_position(
+                    brand_components.iloc[0] if not brand_components.empty else pd.Series(),
+                    {'quality_score': brand_score.get('quality_score', 0.0)}
+                )
+            }
+            
+            # Add AI insights if LLM available
+            if hasattr(self, 'llm_manager') and self.llm_manager:
+                insights = await self._generate_ai_insights({'brand': brand_name, **analysis})
+                analysis.update(insights)
+            
+            return {
+                'success': True,
+                'data': analysis,
+                'message': f"Successfully analyzed brand: {brand_name}"
+            }
+            
+        except Exception as e:
+            return {
+                'success': False,
+                'error': str(e),
+                'message': f"Error analyzing brand: {brand_name}"
+            }
+        
+        # AI Learning Engine
         self.learning_data = []
         self.user_preferences = {}
         self.recommendation_history = {}
         self.success_rates = {}
         
-        # 🔮 AI Prediction Engine
+        # AI Prediction Engine
         self.prediction_models = {}
         self.market_intelligence = {}
         self.energy_forecasts = {}
         
-        # 🎯 AI Optimization Engine
+        # AI Optimization Engine
         self.optimization_algorithms = {}
         self.cost_optimization = {}
         self.performance_optimization = {}
@@ -151,12 +196,12 @@ class AISolarIntelligenceAgent:
         # Initialize ML models
         self._initialize_ml_models()
         
-        print(f"🏷️ {self.agent_name} v{self.version} initialized with Multi-LLM + ML System:")
+        print(f"{self.agent_name} v{self.version} initialized with Multi-LLM + ML System:")
         available_llms = self.llm_manager.get_available_providers()
         for llm in available_llms:
-            print(f"   ✅ {llm}")
-        print(f"   🤖 ML Models: {len(self.ml_models)}")
-        print(f"   🧠 LLM Tasks: {len(self.llm_tasks)}")
+            print(f"   - {llm}")
+        print(f"   ML Models: {len(self.ml_models)}")
+        print(f"   LLM Tasks: {len(self.llm_tasks)}")
     
     def _get_file_hash(self, file_path):
         """Get hash of a file to detect changes"""
@@ -1426,7 +1471,7 @@ Avoid overly promotional language - focus on facts and benefits."""
                 'fallback_content': f"High-quality {component.get('component_type', 'solar component')} designed for reliable performance."
             }
     
-    # 🧠 AI Learning Methods
+    # AI Learning Methods
     async def learn_from_interaction(self, user_input: str, user_feedback: Dict[str, Any]) -> None:
         """AI learns from user interactions to improve recommendations"""
         try:
@@ -1520,7 +1565,7 @@ Avoid overly promotional language - focus on facts and benefits."""
         except Exception as e:
             print(f"Strategy adjustment error: {e}")
     
-    # 🔮 AI Prediction Methods
+    # AI Prediction Methods
     async def predict_energy_needs(self, current_usage: Dict[str, Any]) -> Dict[str, Any]:
         """AI predicts future energy needs"""
         try:
@@ -1587,7 +1632,7 @@ Avoid overly promotional language - focus on facts and benefits."""
         except Exception as e:
             return {'success': False, 'error': str(e)}
     
-    # 🎯 AI Optimization Methods
+    # AI Optimization Methods
     async def optimize_system_configuration(self, system_config: Dict[str, Any]) -> Dict[str, Any]:
         """AI optimizes system configuration for cost and performance"""
         try:
@@ -1624,10 +1669,10 @@ Avoid overly promotional language - focus on facts and benefits."""
 
 # Test the AISolarIntelligenceAgent
 if __name__ == "__main__":
-    print("Testing AISolarIntelligenceAgent...")
+    print("Testing BrandIntelligenceAgent...")
     
     # Initialize AI agent
-    ai_agent = AISolarIntelligenceAgent()
+    ai_agent = BrandIntelligenceAgent()
     
     # Test system requirements
     system_requirements = {

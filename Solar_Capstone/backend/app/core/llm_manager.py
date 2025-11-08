@@ -343,6 +343,19 @@ class StreamlinedLLMManager:
         except Exception as e:
             logger.error(f"Provider test failed for {provider_name}: {e}")
             return False
+            
+    def get_llm(self, llm_type: str = 'generation'):
+        """Get LLM for a specific type of task"""
+        # Simplified wrapper for backward compatibility
+        # Returns self since we handle all tasks through generate_response
+        return self
+
+    def invoke(self, prompt: str, **kwargs):
+        """Direct invocation wrapper for backward compatibility"""
+        result = self.generate_response(prompt, **kwargs)
+        if result.get('success'):
+            return result['response']
+        return f"Error: {result.get('error', 'Unknown error')}"
 
 # Global instance
 llm_manager = StreamlinedLLMManager()

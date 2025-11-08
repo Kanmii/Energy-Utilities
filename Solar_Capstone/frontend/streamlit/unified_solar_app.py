@@ -1,14 +1,14 @@
 """
-🧠 Solar AI Intelligence Platform (SAIP)
+Solar AI Intelligence Platform (SAIP)
 Multi-Modal AI Solar Ecosystem - Where Intelligence Meets Solar Energy
 
 AI-Powered Features:
-- 🧠 Multi-Modal AI: Processes text, images, and data intelligently
-- 🔮 Predictive AI: Predicts energy needs and market trends
-- 🎯 Learning AI: Continuously learns and improves from interactions
-- ⚡ Optimization AI: Optimizes systems for cost and performance
-- 💬 Conversational AI: Provides expert-level solar consultations
-- 📊 Market Intelligence AI: Analyzes market trends and pricing
+- Multi-Modal AI: Processes text, images, and data intelligently
+- Predictive AI: Predicts energy needs and market trends
+- Learning AI: Continuously learns and improves from interactions
+- Optimization AI: Optimizes systems for cost and performance
+- Conversational AI: Provides expert-level solar consultations
+- Market Intelligence AI: Analyzes market trends and pricing
 
 All agents work directly with advanced AI capabilities
 """
@@ -16,373 +16,291 @@ All agents work directly with advanced AI capabilities
 # Core imports for Streamlit and data processing
 import streamlit as st
 import pandas as pd
-import numpy as np
+"""
+Solar Calculator - focused, minimal Streamlit app
+
+This file replaces the previous complex UI and focuses on:
+- Calculating building kilowatt requirement
+- Recommending panel type & number based on budget
+- Attempting a best-effort market price lookup (web) with fallback
+- Generating an invoice (CSV) for installer use
+
+Keep the interface intentionally simple.
+"""
+
+import streamlit as st
+import math
+import requests
+import re
+import io
+import csv
 import json
-import sys
-import os
 from datetime import datetime
-from typing import Dict, List, Any, Optional
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+from pathlib import Path
 import time
-import hashlib
-import logging
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+import functools
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+st.set_page_config(page_title="Solar Calculator", layout="wide")
 
-# Add backend to path for direct agent imports
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
-
-# Page configuration for Streamlit app
-st.set_page_config(
-    page_title="Unified Solar AI Platform",
-    page_icon="☀",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# Custom CSS for unified interface
 st.markdown("""
-<style>
-    .main-header {
-        background: linear-gradient(90deg, #1f4e79, #2d5a87);
-        padding: 1.5rem;
-        border-radius: 15px;
-        margin-bottom: 2rem;
-        color: white;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .interface-selector {
-        background: #2d3748;
-        padding: 1rem;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-        border: 2px solid #4299e1;
-        color: white;
-    }
-    
-    .field-container {
-        background: #2d3748;
-        padding: 1.5rem;
-        border-radius: 8px;
-        margin: 1rem 0;
-        border-left: 4px solid #4299e1;
-    }
-    
-    .chat-container {
-        background: #1a202c;
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin: 1rem 0;
-        border: 1px solid #4a5568;
-        max-height: 600px;
-        overflow-y: auto;
-    }
-    
-    .agent-status {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        margin: 0.25rem;
-    }
-    
-    .status-active {
-        background: #48bb78;
-        color: white;
-    }
-    
-    .status-processing {
-        background: #ed8936;
-        color: white;
-    }
-    
-    .status-inactive {
-        background: #718096;
-        color: white;
-    }
-    
-    /* 🧠 AI-Enhanced Styles */
-    .ai-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 2rem;
-        border-radius: 15px;
-        color: white;
-        text-align: center;
-        margin-bottom: 2rem;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
-    
-    .ai-badges {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-    
-    .ai-badge {
-        background: rgba(255,255,255,0.2);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-    
-    .ai-chat-message {
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 10px;
-        margin: 0.5rem 0;
-        border-left: 4px solid #667eea;
-    }
-    
-    .ai-analysis-card {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        color: white;
-        margin: 1rem 0;
-    }
-    
-    .ai-prediction-card {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        color: white;
-        margin: 1rem 0;
-    }
-    
-    .ai-optimization-card {
-        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        color: white;
-        margin: 1rem 0;
-    }
-    
-    .ai-learning-progress {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1rem;
-        border-radius: 10px;
-        color: white;
-        margin: 1rem 0;
-    }
-</style>
-""", unsafe_allow_html=True)
+# Solar Calculator
 
-# DataStore class for CSV/Database abstraction
-class DataStore:
-    """DataStore class for managing solar system data from CSV files"""
-    def __init__(self, source='csv', csv_path='data/interim/cleaned/appliances_cleaned.csv', db_url=None):
-        self.source = source
-        # Get the project root directory (two levels up from frontend/streamlit)
-        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-        self.csv_path = os.path.join(project_root, csv_path)
-        self.db_url = db_url
-        self._data = None  # Lazy loading cache
-    
-    @property
-    def data(self):
-        """Lazy loading of data with caching"""
-        if self._data is None:
-            try:
-                if self.source == 'csv':
-                    self._data = pd.read_csv(self.csv_path)
-                else:
-                    import sqlite3
-                    conn = sqlite3.connect(self.db_url)
-                    self._data = pd.read_sql_query("SELECT * FROM solar_data", conn)
-                    conn.close()
-            except Exception as e:
-                logger.error(f"Error loading data store: {e}")
-                st.error(f"Error loading data store: {e}")
-                self._data = pd.DataFrame()
-        return self._data
-    
-    def get_appliances(self):
-        """Get all appliances from the CSV"""
-        return self.data.to_dict('records')
-    
-    def get_components(self):
-        """Get solar components from separate CSV files"""
-        components = []
-        try:
-            # Load solar panels
-            project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-            panels_path = os.path.join(project_root, 'data', 'interim', 'cleaned', 'synthetic_solar_panels_synth.csv')
-            panels_df = pd.read_csv(panels_path)
-            components.extend(panels_df.to_dict('records'))
-        except:
-            pass
-        try:
-            # Load batteries
-            batteries_path = os.path.join(project_root, 'data', 'interim', 'cleaned', 'synthetic_batteries_synth.csv')
-            batteries_df = pd.read_csv(batteries_path)
-            components.extend(batteries_df.to_dict('records'))
-        except:
-            pass
-        try:
-            # Load inverters
-            inverters_path = os.path.join(project_root, 'data', 'interim', 'cleaned', 'synthetic_inverters_synth.csv')
-            inverters_df = pd.read_csv(inverters_path)
-            components.extend(inverters_df.to_dict('records'))
-        except:
-            pass
-        return components
-    
-    def get_locations(self):
-        """Get location data from geo CSV"""
-        try:
-            project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-            geo_path = os.path.join(project_root, 'data', 'interim', 'cleaned', 'geo_cleaned.csv')
-            geo_df = pd.read_csv(geo_path)
-            return geo_df.to_dict('records')
-        except:
-            return []
+This simplified app calculates the kW requirement for a building, recommends panels
+based on budget, attempts to fetch a market price for the recommended component,
+and produces a downloadable invoice.
 
-# Initialize session state for the application
-def initialize_session_state():
-    """Initialize all session state variables for the Streamlit app"""
-    if 'interface_mode' not in st.session_state:
-        st.session_state.interface_mode = "Form-Based Interface"
-    if 'agents_initialized' not in st.session_state:
-        st.session_state.agents_initialized = False
-    if 'current_step' not in st.session_state:
-        st.session_state.current_step = 0
-    if 'system_data' not in st.session_state:
-        st.session_state.system_data = {}
-    if 'recommendations' not in st.session_state:
-        st.session_state.recommendations = None
-    if 'chat_messages' not in st.session_state:
-        st.session_state.chat_messages = []
-    if 'chat_context' not in st.session_state:
-        st.session_state.chat_context = {
-            'appliances': [],
-            'location': None,
-            'preferences': {},
-            'system_data': None
-        }
-    if 'session_id' not in st.session_state:
-        import uuid
-        st.session_state.session_id = str(uuid.uuid4())[:8]
+Focus on the core workflow and keep inputs minimal.
+""")
 
-# Direct Agent System - No FastAPI Dependencies
-class DirectAgentManager:
-    """Direct agent manager - uses agents directly without FastAPI"""
-    def __init__(self):
-        self.logger = logging.getLogger(__name__)
-        self.direct_agents = None  # Lazy initialization of agents
-    
-    def _initialize_direct_agents(self):
-        """Initialize direct agents"""
-        if self.direct_agents is not None:
-            return self.direct_agents
-        
-        try:
-            # Import agents directly from backend
-            sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-            from backend.app.agents.input_mapping_agent import InputMappingAgent
-            from backend.app.agents.location_intelligence_agent import LocationIntelligenceAgent
-            from backend.app.agents.system_sizing_agent import EnhancedSystemSizingAgent
-            from backend.app.agents.brand_intelligence_agent import BrandIntelligenceAgent
-            from backend.app.agents.chat_interface_agent import ChatInterfaceAgent
-            from backend.app.agents.super_agent import SuperAgent
-            
-            self.direct_agents = {
-                'inputmapping': InputMappingAgent(),
-                'locationintelligence': LocationIntelligenceAgent(),
-                'systemsizing': EnhancedSystemSizingAgent(),
-                'brandintelligence': BrandIntelligenceAgent(),
-                'chatinterface': ChatInterfaceAgent(),
-                'super': SuperAgent()
-            }
-            self.logger.info("Direct agents initialized successfully")
-            return self.direct_agents
-        except Exception as e:
-            self.logger.error(f"Failed to initialize direct agents: {e}")
+
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def fetch_market_price(component_query: str, timeout: int = 6):
+    """Best-effort market price lookup by searching the web.
+
+    This function performs an HTTP GET to a search engine result page and
+    extracts the first currency-like number it finds. It is intentionally
+    permissive and will return None if parsing fails or network is unavailable.
+    """
+    try:
+        headers = {"User-Agent": "Mozilla/5.0 (compatible; SolarCalc/1.0)"}
+        # Use DuckDuckGo's HTML search result page (simple and doesn't require API key)
+        url = f"https://duckduckgo.com/html/?q={requests.utils.quote(component_query + ' price')}"
+        r = requests.get(url, headers=headers, timeout=timeout)
+        text = r.text
+        # Look for currency patterns (₦, $, £, €, or plain numbers with separators)
+        matches = re.findall(r"(₦|\$|£|€)?\s?([\d,]+(?:\.\d+)?)", text)
+        if not matches:
             return None
+        # Take the first numeric match and try to convert
+        symbol, number = matches[0]
+        clean = number.replace(',', '')
+        value = float(clean)
+        # Interpret symbol if needed (we keep returned currency as-is)
+        return {"price": value, "currency": symbol if symbol else ""}
+    except Exception:
+        return None
+
+
+def calculate_requirement_from_daily_kwh(daily_kwh: float, sun_hours: float = 5.5, derating: float = 1.3):
+    """Return required system power in kW (accounting for derating and sun hours)."""
+    if sun_hours <= 0:
+        sun_hours = 5.5
+    required_kw = (daily_kwh / sun_hours) * derating / 1000.0  # convert W->kW
+    return required_kw
+
+
+def recommend_panels(system_kw: float, panel_watts_options=(400, 350, 300)):
+    """Return recommended panel options: number of panels for each watt rating."""
+    results = []
+    total_watts_needed = math.ceil(system_kw * 1000)
+    for w in panel_watts_options:
+        count = math.ceil(total_watts_needed / w)
+        results.append({"panel_watt": w, "count": count})
+    return results
+
+
+def create_invoice(client_name: str, location: str, items: list, total_cost: float):
+    """Create CSV invoice bytes and return for download."""
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["Invoice", f"{datetime.utcnow().isoformat()} UTC"])
+    writer.writerow(["Client", client_name])
+    writer.writerow(["Location", location])
+    writer.writerow([])
+    writer.writerow(["Item", "Quantity", "Unit Price", "Line Total"])
+    for it in items:
+        writer.writerow([it['name'], it['quantity'], f"{it['unit_price']:.2f}", f"{it['line_total']:.2f}"])
+    writer.writerow([])
+    writer.writerow(["Total", "", "", f"{total_cost:.2f}"])
+    return output.getvalue().encode('utf-8')
+
+
+def create_pdf_invoice(client_name: str, location: str, items: list, total_cost: float, currency: str):
+    """Create a PDF invoice with branding."""
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=letter)
+    styles = getSampleStyleSheet()
     
-    def call_agent_sync(self, agent_name: str, endpoint: str, data: dict = None):
-        """Call agent directly"""
-        self.logger.info(f"Calling direct agent: {agent_name}/{endpoint} with data: {data is not None}")
+    story = []
+
+    # Add logo placeholder
+    logo_style = ParagraphStyle(name='logo', parent=styles['h1'], alignment=2, fontSize=16, spaceAfter=20)
+    story.append(Paragraph("Your Company Logo", logo_style))
+
+    # Invoice title
+    story.append(Paragraph("Invoice", styles['h1']))
+    story.append(Spacer(1, 12))
+
+    # Invoice details
+    story.append(Paragraph(f"<b>Date:</b> {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC", styles['Normal']))
+    story.append(Paragraph(f"<b>Client:</b> {client_name}", styles['Normal']))
+    story.append(Paragraph(f"<b>Location:</b> {location}", styles['Normal']))
+    story.append(Spacer(1, 24))
+
+    # Table header
+    table_data = [["Item", "Quantity", "Unit Price", "Line Total"]]
+    
+    # Table items
+    for item in items:
+        table_data.append([
+            item['name'],
+            item['quantity'],
+            f"{currency}{item['unit_price']:.2f}",
+            f"{currency}{item['line_total']:.2f}"
+        ])
         
-        direct_agents = self._initialize_direct_agents()
-        
-        if direct_agents is None:
-            self.logger.error("Direct agents unavailable")
-            return {"success": False, "error": "Direct agents unavailable"}
-        
-        try:
-            agent = direct_agents.get(agent_name)
-            if agent is None:
-                return {"success": False, "error": f"Agent {agent_name} not found"}
-            
-            # Map endpoint to agent method based on agent type
-            if endpoint == "status":
-                return {"success": True, "data": {"agent_name": agent_name, "status": "active"}}
-            elif endpoint == "process_appliances":
-                result = agent.process_appliances(data)
-                return {"success": True, "data": result}
-            elif endpoint == "process_location":
-                result = agent.process(data)
-                return {"success": True, "data": result}
-            elif endpoint == "calculate":
-                result = agent.calculate(data)
-                return {"success": True, "data": result}
-            elif endpoint == "recommend_components":
-                result = agent.recommend_components(data)
-                return {"success": True, "data": result}
-            elif endpoint == "process":
-                result = agent.process(data)
-                return {"success": True, "data": result}
-            elif endpoint == "process_chat":
-                result = agent.process_chat(data)
-                return {"success": True, "data": result}
+    # Table total
+    table_data.append(["", "", "<b>Total</b>", f"<b>{currency}{total_cost:.2f}</b>"])
+
+    # Create table
+    invoice_table = Table(table_data, colWidths=[280, 80, 100, 100])
+    invoice_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+        ('BACKGROUND', (0, 1), (-1, -2), colors.beige),
+        ('GRID', (0, 0), (-1, -1), 1, colors.black),
+        ('FONTNAME', (0, -1), (-1, -1), 'Helvetica-Bold'),
+        ('BACKGROUND', (0, -1), (-1, -1), colors.lightgrey),
+    ]))
+    
+    story.append(invoice_table)
+    story.append(Spacer(1, 24))
+
+    # Footer
+    story.append(Paragraph("Thank you for your business!", styles['Normal']))
+
+    doc.build(story)
+    buffer.seek(0)
+    return buffer.getvalue()
+
+
+st.sidebar.header("Inputs")
+input_mode = st.sidebar.radio("Input mode:", ["Full house (kWh/day)", "Rooms/Stories estimate"]) 
+
+if input_mode == "Full house (kWh/day)":
+    daily_kwh = st.sidebar.number_input("Total household energy (kWh per day)", min_value=0.0, value=12.0, step=0.1)
+else:
+    rooms = st.sidebar.number_input("Number of rooms (or equivalent units)", min_value=1, value=4, step=1)
+    avg_kwh_per_room = st.sidebar.number_input("Estimated daily kWh per room", min_value=0.1, value=2.5, step=0.1)
+    daily_kwh = rooms * avg_kwh_per_room
+
+sun_hours = st.sidebar.number_input("Peak sun hours per day (estimate)", min_value=1.0, max_value=12.0, value=5.5, step=0.1)
+budget = st.sidebar.number_input("Budget (local currency units)", min_value=0.0, value=500000.0, step=1000.0)
+client_name = st.sidebar.text_input("Client / Site Name", value="Client A")
+location = st.sidebar.text_input("Location (city / address)", value="Unknown")
+
+st.header("Quick Summary")
+st.write(f"Estimated daily energy: **{daily_kwh:.2f} kWh/day**")
+
+if st.button("Calculate System"):
+    with st.spinner("Calculating system requirement and recommendations..."):
+        system_kw = calculate_requirement_from_daily_kwh(daily_kwh, sun_hours)
+        st.metric("Required System Size", f"{system_kw:.2f} kW")
+
+        panel_options = recommend_panels(system_kw)
+        st.subheader("Panel Recommendations")
+        st.write("The count below estimates number of panels required for each typical panel watt rating.")
+
+        # Try to fetch market price for a 400W panel (as example)
+        lookup_name = "400W solar panel"
+        price_info = fetch_market_price(lookup_name)
+        currency_symbol = ""
+        if price_info and price_info["currency"]:
+            currency_symbol = price_info["currency"]
+
+        items_for_invoice = []
+        affordable = False
+
+        for opt in panel_options:
+            w = opt['panel_watt']
+            count = opt['count']
+            # Determine unit price via lookup; if lookup failed, ask user to input
+            if price_info:
+                # Price found is generic number; assume per-panel price if magnitude is small
+                approx_unit_price = price_info['price']
             else:
-                return {"success": False, "error": f"Unknown endpoint: {endpoint}"}
-                
-        except Exception as e:
-            self.logger.error(f"Direct agent call failed: {e}")
-            return {"success": False, "error": str(e)}
+                approx_unit_price = None
 
-@st.cache_resource
-def get_direct_agent_manager():
-    """Get direct agent manager - no FastAPI dependencies"""
-    return DirectAgentManager()
+            c1, c2, c3 = st.columns([2, 1, 2])
+            with c1:
+                st.write(f"• {w} W panels: **{count}** panels")
+            with c2:
+                if approx_unit_price is not None:
+                    st.write(f"Unit price: {currency_symbol}{approx_unit_price:,.2f}")
+                else:
+                    st.write("Unit price: (unknown)")
+            with c3:
+                if approx_unit_price is None:
+                    user_price = st.number_input(f"Enter unit price for {w}W panel", min_value=0.0, value=100000.0, key=f"price_{w}")
+                    unit_price = user_price
+                else:
+                    unit_price = approx_unit_price
 
-# Utility Functions
-@st.cache_data
+                total_cost = unit_price * count
+                st.write(f"Estimated cost for this option: {total_cost:,.2f}")
+
+            items_for_invoice.append({
+                'name': f"{w}W panel",
+                'quantity': count,
+                'unit_price': unit_price,
+                'line_total': total_cost
+            })
+
+            if total_cost <= budget:
+                affordable = True
+        
+        # Find recommended options
+        best_cost_option = None
+        best_fit_option = None
+        
+        affordable_options = [item for item in items_for_invoice if item['line_total'] <= budget]
+
+        if affordable_options:
+            best_cost_option = min(affordable_options, key=lambda x: x['line_total'])
+            
+            # Find the option closest to the budget without exceeding it
+            best_fit_option = max(affordable_options, key=lambda x: x['line_total'])
+
+        st.subheader("Recommended Options")
+        if best_cost_option:
+            st.success(f"**Best Cost Option:** {best_cost_option['name']} ({best_cost_option['quantity']} panels) - Cost: {currency_symbol}{best_cost_option['line_total']:,.2f}")
+        else:
+            st.warning("No affordable options found for 'Best Cost'.")
+
+        if best_fit_option:
+            st.info(f"**Best Fit for Budget:** {best_fit_option['name']} ({best_fit_option['quantity']} panels) - Cost: {currency_symbol}{best_fit_option['line_total']:,.2f}")
+        else:
+            st.warning("No affordable options found for 'Best Fit for Budget'.")
+
+        # Summarize best option
+        total_estimate = sum(it['line_total'] for it in items_for_invoice)
+        st.subheader("Estimate Summary")
+        st.write(f"Total estimated cost (chosen options): **{currency_symbol}{total_estimate:,.2f}**")
+        if affordable:
+            st.success("At least one panel option fits within the provided budget.")
+        else:
+            st.error("None of the panel options fit within the provided budget. Consider increasing budget or choosing smaller panels.")
+
+        # Allow user to create invoice
+        if st.button("Generate PDF Invoice"):
+            invoice_bytes = create_pdf_invoice(client_name, location, items_for_invoice, total_estimate, currency_symbol)
+            st.download_button("Download Invoice (PDF)", data=invoice_bytes, file_name=f"invoice_{client_name.replace(' ','_')}.pdf")
+
+st.markdown("---")
+st.markdown("Made for installers: simple input, clear results, invoice export.")
+
+
 def get_nigerian_cities():
-    """Get Nigerian states and their Local Government Areas (LGAs)"""
+    """Returns a dictionary of Nigerian states and their LGAs."""
     return {
-        'Abia': ['Aba North', 'Aba South', 'Arochukwu', 'Bende', 'Ikwuano', 'Isiala Ngwa North', 'Isiala Ngwa South', 'Isuikwuato', 'Obi Ngwa', 'Ohafia', 'Osisioma', 'Ugwunagbo', 'Ukwa East', 'Ukwa West', 'Umuahia North', 'Umuahia South', 'Umu Nneochi'],
-        'Adamawa': ['Demsa', 'Fufore', 'Ganye', 'Gayo', 'Gombi', 'Grie', 'Hong', 'Jada', 'Lamurde', 'Madagali', 'Maiha', 'Maiyetti', 'Mayom', 'Michika', 'Mubi North', 'Mubi South', 'Numan', 'Shelleng', 'Song', 'Toungo', 'Yola North', 'Yola South'],
-        'Akwa Ibom': ['Abak', 'Eastern Obolo', 'Eket', 'Esit Eket', 'Essien Udim', 'Etim Ekpo', 'Etinan', 'Ibeno', 'Ibesikpo Asutan', 'Ibiono-Ibom', 'Ika', 'Ikono', 'Ikot Abasi', 'Ikot Ekpene', 'Ini', 'Itu', 'Mbo', 'Mkpat-Enin', 'Nsit-Atai', 'Nsit-Ibom', 'Nsit-Ubium', 'Obot Akara', 'Onna', 'Oron', 'Oruk Anam', 'Udung-Uko', 'Ukanafun', 'Uruan', 'Urue-Offong/Oruko', 'Uyo'],
-        'Anambra': ['Anambra East', 'Anambra West', 'Anaedo', 'Awka North', 'Awka South', 'Ayamelum', 'Dunukofia', 'Ekwusigo', 'Idemili North', 'Idemili South', 'Ihiala', 'Njikoka', 'Nnewi North', 'Nnewi South', 'Ogbaru', 'Onitsha North', 'Onitsha South', 'Orumba North', 'Orumba South', 'Oyi'],
-        'Bauchi': ['Alkaleri', 'Bauchi', 'Bogoro', 'Damban', 'Darazo', 'Dass', 'Ganjuwa', 'Giade', 'Itas/Gadau', "Jama'are", 'Katagum', 'Kirfi', 'Misau', 'Ningi', 'Shira', 'Tafawa Balewa', 'Toro', 'Warji', 'Zaki'],
-        'Bayelsa': ['Brass', 'Ekeremor', 'Kolokuma/Opokuma', 'Nembe', 'Ogbia', 'Sagbama', 'Southern Ijaw', 'Yenagoa'],
-        'Benue': ['Ado', 'Agatu', 'Apa', 'Buruku', 'Gboko', 'Gwer East', 'Gwer West', 'Katsina-Ala', 'Konshisha', 'Kwande', 'Logo', 'Makurdi', 'Obi', 'Ogbadibo', 'Ohimini', 'Oju', 'Okpokwu', 'Oturkpo', 'Tarka', 'Ukum', 'Ushongo', 'Vandeikya'],
-        'Borno': ['Abadam', 'Askira/Uba', 'Bama', 'Bayo', 'Biu', 'Chibok', 'Damboa', 'Dikwa', 'Gubio', 'Guzamala', 'Gwoza', 'Hawul', 'Jere', 'Kaga', 'Kala/Balge', 'Konduga', 'Kukawa', 'Kwaya Kusar', 'Mafa', 'Magumeri', 'Maiduguri', 'Marte', 'Mobbar', 'Monguno', 'Ngala', 'Nganzai', 'Shani'],
-        'Cross River': ['Abi', 'Akamkpa', 'Akpabuyo', 'Bakassi', 'Bekwarra', 'Biase', 'Boki', 'Calabar Municipal', 'Calabar South', 'Etung', 'Ikom', 'Obanliku', 'Obubra', 'Obudu', 'Odukpani', 'Ogoja', 'Yakuur', 'Yala'],
-        'Delta': ['Aniocha North', 'Aniocha South', 'Bomadi', 'Burutu', 'Ethiope East', 'Ethiope West', 'Ika North East', 'Ika South', 'Isoko North', 'Isoko South', 'Ndokwa East', 'Ndokwa West', 'Okpe', 'Oshimili North', 'Oshimili South', 'Patani', 'Sapele', 'Udu', 'Ughelli North', 'Ughelli South', 'Ukwuani', 'Uvwie', 'Warri North', 'Warri South', 'Warri South West'],
-        'Ebonyi': ['Abakaliki', 'Afikpo North', 'Afikpo South', 'Ezza North', 'Ezza South', 'Ikwo', 'Ishielu', 'Ivo', 'Izzi', 'Ohaozara', 'Ohaukwu', 'Onicha'],
-        'Edo': ['Akoko-Edo', 'Egor', 'Esan Central', 'Esan North-East', 'Esan South-East', 'Esan West', 'Etsako Central', 'Etsako East', 'Etsako West', 'Igueben', 'Ikpoba Okha', 'Orhionmwon', 'Oredo', 'Ovia North-East', 'Ovia South-West', 'Owan East', 'Owan West', 'Uhunmwonde'],
-        'Ekiti': ['Efon', 'Ekiti East', 'Ekiti South-West', 'Ekiti West', 'Emure', 'Gbonyin', 'Ido Osi', 'Ijero', 'Ikere', 'Ikole', 'Ilejemeje', 'Irepodun/Ifelodun', 'Ise/Orun', 'Moba', 'Oye'],
-        'Enugu': ['Aninri', 'Awgu', 'Enugu East', 'Enugu North', 'Enugu South', 'Ezeagu', 'Igbo Etiti', 'Igbo Eze North', 'Igbo Eze South', 'Isi Uzo', 'Nkanu East', 'Nkanu West', 'Nsukka', 'Oji River', 'Udenu', 'Uzo Uwani'],
-        'Federal Capital Territory': ['Abaji', 'Bwari', 'Gwagwalada', 'Kuje', 'Kwali', 'Abuja Municipal'],
-        'Gombe': ['Akko', 'Balanga', 'Billiri', 'Dukku', 'Funakaye', 'Gombe', 'Kaltungo', 'Kwami', 'Nafada', 'Shongom', 'Yamaltu/Deba'],
-        'Imo': ['Aboh Mbaise', 'Ahiazu Mbaise', 'Ehime Mbano', 'Ezinihitte', 'Ideato North', 'Ideato South', 'Ihitte/Uboma', 'Ikeduru', 'Isiala Mbano', 'Isu', 'Mbaitoli', 'Ngor Okpala', 'Njaba', 'Nkwerre', 'Nwangele', 'Obowo', 'Oguta', 'Ohaji/Egbema', 'Okigwe', 'Orlu', 'Orsu', 'Oru East', 'Oru West', 'Owerri Municipal', 'Owerri North', 'Owerri West'],
-        'Jigawa': ['Babura', 'Biriniwa', 'Birnin Kudu', 'Buji', 'Bunkure', 'Gagarawa', 'Garki', 'Gumel', 'Guri', 'Gwaram', 'Gwiwa', 'Hadejia', 'Jahun', 'Kafin Hausa', 'Kazaure', 'Kiri Kasama', 'Kiyawa', 'Maigatari', 'Malam Madori', 'Miga', 'Sule Tankarkar', 'Taura', 'Yankwashi'],
-        'Kaduna': ['Birnin Gwari', 'Chikun', 'Giwa', 'Igabi', 'Ikara', 'Jaba', "Jema'a", 'Kachia', 'Kaduna North', 'Kaduna South', 'Kagarko', 'Kajuru', 'Kaura', 'Kauru', 'Kubau', 'Kudan', 'Lere', 'Makarfi', 'Sabon Gari', 'Sanga', 'Soba', 'Zangon Kataf', 'Zaria'],
-        'Kano': ['Ajingi', 'Albasu', 'Bagwai', 'Bebeji', 'Bichi', 'Bunkure', 'Dala', 'Dambatta', 'Dawakin Kudu', 'Dawakin Tofa', 'Doguwa', 'Fagge', 'Gabasawa', 'Garko', 'Garun Mallam', 'Gaya', 'Gezawa', 'Gwale', 'Gwarzo', 'Kabo', 'Kano Municipal', 'Karaye', 'Kibiya', 'Kiru', 'Kumbotso', 'Kunchi', 'Kura', 'Madobi', 'Makoda', 'Minjibir', 'Nasarawa', 'Rano', 'Rimin Gado', 'Rogo', 'Shanono', 'Sumaila', 'Takai', 'Tarauni', 'Tofa', 'Tsanyawa', 'Tudun Wada', 'Ungogo', 'Warawa', 'Wudil'],
-        'Katsina': ['Bakori', 'Batagarawa', 'Batsari', 'Baure', 'Bindawa', 'Charanchi', 'Dandume', 'Danja', 'Dan Musa', 'Daura', 'Dutsi', 'Dutsin Ma', 'Faskari', 'Funtua', 'Ingawa', 'Jibia', 'Kafur', 'Kaita', 'Kankara', 'Kankia', 'Katsina', 'Kurfi', 'Kusada', "Mai'Adua", 'Malumfashi', 'Mani', 'Mashi', 'Matazu', 'Musawa', 'Rimi', 'Sabuwa', 'Safana', 'Sandamu'],
-        'Kebbi': ['Aleiro', 'Argungu', 'Arewa Dandi', 'Augie', 'Bagudo', 'Birnin Kebbi', 'Bunza', 'Dandi', 'Fakai', 'Gwandu', 'Jega', 'Kalgo', 'Koko/Besse', 'Maiyama', 'Ngaski', 'Sakaba', 'Shanga', 'Suru', 'Wasagu', 'Yauri', 'Zuru'],
         'Kogi': ['Ajaokuta', 'Ankpa', 'Bassa', 'Dekina', 'Ibaji', 'Idah', 'Igalamela Odolu', 'Ijumu', 'Kabba/Bunu', 'Kogi', 'Lokoja', 'Mopa Muro', 'Ofu', 'Okehi', 'Okene', 'Olamaboro', 'Omala', 'Yagba East', 'Yagba West'],
         'Kwara': ['Asa', 'Baruten', 'Edu', 'Ekiti', 'Ifelodun', 'Ilorin East', 'Ilorin South', 'Ilorin West', 'Irepodun', 'Isin', 'Kaiama', 'Moro', 'Offa', 'Oke Ero', 'Oyun', 'Pategi'],
         'Lagos': ['Agege', 'Ajeromi-Ifelodun', 'Alimosho', 'Amuwo-Odofin', 'Apapa', 'Badagry', 'Epe', 'Eti-Osa', 'Ibeju-Lekki', 'Ifako-Ijaiye', 'Ikeja', 'Ikorodu', 'Kosofe', 'Lagos Island', 'Lagos Mainland', 'Mushin', 'Ojo', 'Oshodi-Isolo', 'Shomolu', 'Surulere'],
@@ -399,6 +317,7 @@ def get_nigerian_cities():
         'Yobe': ['Bade', 'Bursari', 'Damaturu', 'Fika', 'Fune', 'Geidam', 'Gujba', 'Gulani', 'Jakusko', 'Karasuwa', 'Machina', 'Nangere', 'Nguru', 'Potiskum', 'Tarmuwa', 'Yunusari', 'Yusufari'],
         'Zamfara': ['Anka', 'Bakura', 'Birnin Magaji/Kiyaw', 'Bukkuyum', 'Bungudu', 'Gummi', 'Gusau', 'Kaura Namoda', 'Maradun', 'Maru', 'Shinkafi', 'Talata Mafara', 'Tsafe', 'Zurmi']
     }
+
 
 @st.cache_data(ttl=300)  # Cache for 5 minutes
 def load_appliance_data():
@@ -457,16 +376,14 @@ def render_interface_selector():
     col1, col2 = st.columns(2)
     
     with col1:
-        if st.button("📋 Form-Based Interface", key="form_mode", use_container_width=True):
+        if st.button("Form-Based Interface", key="form_mode", use_container_width=True):
             st.session_state.interface_mode = "Form-Based Interface"
             st.rerun()
     
     with col2:
-        if st.button("💬 Advanced Chat Interface", key="chat_mode", use_container_width=True):
+        if st.button("Advanced Chat Interface", key="chat_mode", use_container_width=True):
             st.session_state.interface_mode = "Advanced Chat Interface"
-            st.rerun()
-    
-    # Show current mode
+            st.rerun()    # Show current mode
     current_mode = st.session_state.interface_mode
     if current_mode == "Form-Based Interface":
         st.success("Form-Based Interface Active - Fill out the form below")
@@ -608,7 +525,7 @@ def render_form_interface():
                     help="How many of this appliance do you have?"
                 )
             
-            if st.button("➕ Add Appliance", key="add_appliance", type="primary"):
+            if st.button("Add Appliance", key="add_appliance", type="primary"):
                 if selected_type:
                     if 'appliances' not in st.session_state:
                         st.session_state.appliances = []
@@ -652,7 +569,7 @@ def render_form_interface():
                 with col3:
                     st.write(f"Qty: {appliance['quantity']}")
                 with col4:
-                    if st.button("🗑️ DELETE", key=f"remove_{i}", type="secondary"):
+                    if st.button("DELETE", key=f"remove_{i}", type="secondary"):
                         st.session_state.appliances.pop(i)
                         st.success(f"Removed {appliance['name']}")
                         st.rerun()
@@ -981,7 +898,7 @@ def render_system_results():
     if st.session_state.current_step < 1:
         return
     
-    st.markdown("##System Calculation Results")
+    st.markdown("## System Calculation Results")
     
     system_data = st.session_state.system_data
     sizing_result = system_data['sizing_result']
@@ -1014,7 +931,7 @@ def render_system_results():
 
 def render_system_overview(sizing_result, recommendations):
     """Render system overview"""
-    st.markdown("###System Specifications")
+    st.markdown("### System Specifications")
     
     col1, col2 = st.columns(2)
     
@@ -1039,7 +956,7 @@ def render_system_overview(sizing_result, recommendations):
 
 def render_component_recommendations(recommendations):
     """Render component recommendations"""
-    st.markdown("###Component Recommendations")
+    st.markdown("### Component Recommendations")
     
     for component_type, components in recommendations['components'].items():
         if components:
@@ -1065,7 +982,7 @@ def render_component_recommendations(recommendations):
 
 def render_cost_analysis(recommendations):
     """Render cost analysis"""
-    st.markdown("###Cost Analysis")
+    st.markdown("### Cost Analysis")
     
     col1, col2 = st.columns(2)
     
@@ -1081,7 +998,7 @@ def render_cost_analysis(recommendations):
 
 def render_performance_analysis(sizing_result, recommendations):
     """Render performance analysis"""
-    st.markdown("###Performance Analysis")
+    st.markdown("### Performance Analysis")
     
     col1, col2 = st.columns(2)
     
@@ -1102,55 +1019,55 @@ def render_ai_header():
     """AI-powered header with intelligent branding"""
     st.markdown("""
     <div class="ai-header">
-        <h1>🧠 Solar AI Intelligence Platform</h1>
+        <h1>Solar AI Intelligence Platform</h1>
         <p>Multi-Modal AI Solar Ecosystem - Where Intelligence Meets Solar Energy</p>
         <div class="ai-badges">
-            <span class="ai-badge">🤖 AI-Powered</span>
-            <span class="ai-badge">🧠 Intelligent</span>
-            <span class="ai-badge">🔮 Predictive</span>
-            <span class="ai-badge">🎯 Personalized</span>
+            <span class="ai-badge">AI-Powered</span>
+            <span class="ai-badge">Intelligent</span>
+            <span class="ai-badge">Predictive</span>
+            <span class="ai-badge">Personalized</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
 def render_ai_analysis_dashboard():
     """AI-powered analysis dashboard"""
-    st.markdown("## 🧠 AI Solar Analysis Dashboard")
+    st.markdown("## AI Solar Analysis Dashboard")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.metric("AI Confidence", "94%", "↗️ +2%")
+        st.metric("AI Confidence", "94%", "+2%")
         st.info("AI confidence in recommendations")
     
     with col2:
-        st.metric("AI Learning", "1,247", "↗️ +23")
+        st.metric("AI Learning", "1,247", "+23")
         st.info("AI learning interactions")
     
     with col3:
-        st.metric("AI Accuracy", "97%", "↗️ +1%")
+        st.metric("AI Accuracy", "97%", "+1%")
         st.info("AI prediction accuracy")
     
     # AI Insights
-    st.markdown("### 🔮 AI Insights")
+    st.markdown("### AI Insights")
     st.success("**AI Prediction**: Your energy needs will increase by 15% over the next 3 years")
     st.info("**AI Recommendation**: Consider a 20% larger system for future-proofing")
     st.warning("**AI Alert**: Battery prices are expected to drop 20% in Q2 2024")
 
 def render_ai_recommendations():
     """AI-powered recommendation system"""
-    st.markdown("## 🎯 AI-Powered Recommendations")
+    st.markdown("## AI-Powered Recommendations")
     
     # AI Analysis Tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["🧠 AI Analysis", "🔮 AI Predictions", "⚡ AI Optimization", "📊 AI Insights"])
+    tab1, tab2, tab3, tab4 = st.tabs(["AI Analysis", "AI Predictions", "AI Optimization", "AI Insights"])
     
     with tab1:
         st.markdown("### AI Solar Analysis")
         st.write("**AI has analyzed your requirements and found:**")
-        st.success("✅ Optimal system size: 5.2kW")
-        st.success("✅ Best panel type: Monocrystalline")
-        st.success("✅ Recommended battery: Lithium-Ion")
-        st.success("✅ AI confidence: 94%")
+        st.success("Optimal system size: 5.2kW")
+        st.success("Best panel type: Monocrystalline")
+        st.success("Recommended battery: Lithium-Ion")
+        st.success("AI confidence: 94%")
     
     with tab2:
         st.markdown("### AI Energy Predictions")
@@ -1163,18 +1080,18 @@ def render_ai_recommendations():
     with tab3:
         st.markdown("### AI System Optimization")
         st.write("**AI has optimized your system for:**")
-        st.success("💰 Cost: Minimized by 12%")
-        st.success("⚡ Performance: Maximized by 18%")
-        st.success("🔮 Future-proofing: 3-year scalability")
-        st.success("🛠️ Maintenance: Optimized schedule")
+        st.success("Cost: Minimized by 12%")
+        st.success("Performance: Maximized by 18%")
+        st.success("Future-proofing: 3-year scalability")
+        st.success("Maintenance: Optimized schedule")
     
     with tab4:
         st.markdown("### AI Market Intelligence")
         st.write("**AI market analysis shows:**")
-        st.info("📈 Panel prices: -8% this quarter")
-        st.info("🔋 Battery prices: -15% expected")
-        st.info("⚡ Inverter efficiency: +5% new models")
-        st.info("💰 ROI improvement: +12% with current prices")
+        st.info("Panel prices: -8% this quarter")
+        st.info("Battery prices: -15% expected")
+        st.info("Inverter efficiency: +5% new models")
+        st.info("ROI improvement: +12% with current prices")
 
 def render_ai_learning_section():
     """AI learning and adaptation section"""
@@ -1221,8 +1138,8 @@ def render_ai_visualization():
 
 def render_ai_voice_interface():
     """AI voice interface (placeholder for future implementation)"""
-    st.markdown("## 🎤 AI Voice Assistant")
-    st.info("🎤 **Coming Soon**: Voice AI assistant for hands-free solar consultations")
+    st.markdown("## AI Voice Assistant")
+    st.info("**Coming Soon**: Voice AI assistant for hands-free solar consultations")
     st.write("**Planned Features:**")
     st.write("• Voice-to-text solar queries")
     st.write("• AI voice responses")
@@ -1231,8 +1148,8 @@ def render_ai_voice_interface():
 
 def render_ai_mobile_integration():
     """AI mobile integration"""
-    st.markdown("## 📱 AI Mobile Integration")
-    st.info("📱 **Coming Soon**: AI-powered mobile app")
+    st.markdown("## AI Mobile Integration")
+    st.info("**Coming Soon**: AI-powered mobile app")
     st.write("**Planned Features:**")
     st.write("• AI-powered mobile recommendations")
     st.write("• Real-time AI system monitoring")
@@ -1266,7 +1183,7 @@ def render_sidebar():
         4. Chat for clarifications
         """)
         
-        st.markdown("##System Status")
+        st.markdown("## System Status")
         if st.session_state.agents_initialized:
             st.success("All agents ready")
         else:
@@ -1281,14 +1198,14 @@ def render_sidebar():
         if st.session_state.current_step >= 1:
             st.success("System calculated")
         
-        st.markdown("##Agent Mode")
+        st.markdown("## Agent Mode")
         st.info("**Direct Mode**: Using local agents - No FastAPI backend required")
 
 def main():
     """Main AI-enhanced application function"""
     st.set_page_config(
         page_title="Solar AI Intelligence Platform",
-        page_icon="🧠",
+        page_icon=None,
         layout="wide"
     )
     
@@ -1299,20 +1216,20 @@ def main():
     
     # AI Navigation Tabs
     ai_tabs = st.tabs([
-        "🤖 AI Chat", 
-        "🧠 AI Analysis", 
-        "🎯 AI Recommendations", 
-        "📊 AI Visualizations",
-        "🧠 AI Learning",
-        "🎤 AI Voice",
-        "📱 AI Mobile",
-        "⚙️ System Config"
+        "AI Chat", 
+        "AI Analysis", 
+        "AI Recommendations", 
+        "AI Visualizations",
+        "AI Learning",
+        "AI Voice",
+        "AI Mobile",
+        "System Config"
     ])
     
     with ai_tabs[0]:
-        st.markdown("## 🤖 AI Solar Expert Chat")
+        st.markdown("## AI Solar Expert Chat")
         st.markdown("**Chat with our AI solar expert - 20+ years of experience in every response**")
-        st.info("🎤 **AI Chat Interface**: Coming soon! AI will provide expert-level solar consultations.")
+        st.info("**AI Chat Interface**: Coming soon! AI will provide expert-level solar consultations.")
         st.write("**Planned AI Features:**")
         st.write("• Natural language solar consultations")
         st.write("• Expert-level AI responses")
@@ -1339,7 +1256,7 @@ def main():
     
     with ai_tabs[7]:
         # Original system configuration
-        st.markdown("## ⚙️ System Configuration")
+        st.markdown("## System Configuration")
         render_interface_selector()
         render_sidebar()
         render_agent_status()

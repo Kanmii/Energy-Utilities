@@ -65,6 +65,14 @@ class LocationIntelligenceAgent(BaseAgent):
         self.geo_data = None
         self._load_geo_data()
     
+    async def analyze_location(self, location: str) -> Dict[str, Any]:
+        """Analyze solar potential for a given location"""
+        input_data = {
+            'location': location,
+            'user_query': f"Analyze solar potential for {location}"
+        }
+        return self.process(input_data)
+    
     def process(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
         """Process location analysis request with AI intelligence"""
         try:

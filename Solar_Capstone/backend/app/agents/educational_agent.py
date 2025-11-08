@@ -111,6 +111,35 @@ class EducationalAgent:
         # FAQ database
         self.faq_database = self._load_faq_database()
         
+    async def get_educational_content(self, topic: str) -> str:
+        """Get educational content about a solar topic.
+        This is an async wrapper for generating content with LLM."""
+        response = await self.generate_educational_content_with_llm(
+            topic=topic,
+            content_type="comprehensive_lesson",
+            user_level="beginner"
+        )
+        
+        if response['success']:
+            return response['content']
+        else:
+            # Fallback to static content
+            static_content = self.get_educational_content([topic])
+            if static_content:
+                return "\n\n".join(content.content for content in static_content)
+            else:
+                return """# Solar Energy Basics
+
+Solar energy is the conversion of sunlight into electricity using photovoltaic (PV) cells. In Nigeria, we receive abundant sunlight year-round, making solar power an excellent renewable energy source.
+
+Key benefits include:
+- Reliable power supply
+- Lower electricity costs
+- Clean, renewable energy
+- Minimal maintenance required
+
+Contact us to learn more about solar solutions for your needs."""
+        
         # Learning level adaptation
         self.learning_levels = {
             'beginner': {
@@ -404,25 +433,37 @@ class EducationalAgent:
             print(f"WARNING: Error explaining calculation process: {e}")
             return []
     
-    def get_educational_content(self, topics: List[str], difficulty: str = "beginner") -> List[EducationalContent]:
-        """Get educational content for specific topics"""
-        try:
-            relevant_content = []
+    async def get_educational_content(self, topic: str) -> str:
+        """Get educational content about a solar topic"""
+        response = await self.generate_educational_content_with_llm(
+            topic=topic,
+            content_type="comprehensive_lesson",
+            user_level="beginner"
+        )
+        
+        if response['success']:
+            return response['content']
+        else:
+            # Fallback to static content
+            static_content = []
+            if topic.lower() in self.educational_content:
+                for content in self.educational_content[topic.lower()]:
+                    static_content.append(content.content)
             
-            for topic in topics:
-                if topic in self.educational_content:
-                    for content in self.educational_content[topic]:
-                        if content.difficulty_level == difficulty or difficulty == "all":
-                            relevant_content.append(content)
-            
-            # Sort by estimated read time
-            relevant_content.sort(key=lambda x: x.estimated_read_time)
-            
-            return relevant_content[:5]  # Return top 5 most relevant
-            
-        except Exception as e:
-            print(f"WARNING: Error getting educational content: {e}")
-            return []
+            if static_content:
+                return "\n\n".join(static_content)
+            else:
+                return """# Solar Energy Basics
+
+Solar energy is the conversion of sunlight into electricity using photovoltaic (PV) cells. In Nigeria, we receive abundant sunlight year-round, making solar power an excellent renewable energy source.
+
+Key benefits include:
+- Reliable power supply
+- Lower electricity costs 
+- Clean, renewable energy
+- Minimal maintenance required
+
+Contact us to learn more about solar solutions for your needs."""
     
     def suggest_faqs(self, context: str, user_level: str = "beginner") -> List[str]:
         """Suggest relevant FAQs based on context"""

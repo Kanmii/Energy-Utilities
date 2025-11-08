@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+pymongo
+sentence-transformers
+PyPDF2
+python-docx
+beautifulsoup4
+python-pptx
+openpyxl
+lxml

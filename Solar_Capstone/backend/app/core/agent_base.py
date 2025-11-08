@@ -13,6 +13,8 @@ class BaseAgent(ABC):
     
     def __init__(self, name: str, llm_manager=None, tool_manager=None, nlp_processor=None):
         self.name = name
+        # Backwards-compatible alias
+        self.agent_name = name
         self.llm_manager = llm_manager
         self.tool_manager = tool_manager
         self.nlp_processor = nlp_processor

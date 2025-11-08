@@ -5,37 +5,39 @@ Handles natural language understanding, intent classification, and entity extrac
 
 import re
 from typing import Dict, List, Any, Optional, Tuple
-import spacy
 from nltk.tokenize import word_tokenize
 from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
 
+
 class NLPProcessor:
-    """Natural Language Processing for solar system interactions"""
-    
+    """Natural Language Processing for solar system interactions
+
+    This implementation intentionally avoids a dependency on spaCy by
+    falling back to lightweight NLTK-based processing. It's suitable for
+    basic intent/keyword extraction and sentiment analysis while the
+    full spaCy model is unavailable.
+    """
+
     def __init__(self):
         self.nlp = None
         self.sentiment_analyzer = None
         self.solar_keywords = self._load_solar_keywords()
         self.intent_patterns = self._load_intent_patterns()
         self._initialize_nlp()
-    
+
     def _initialize_nlp(self):
-        """Initialize NLP models and tools"""
+        """Initialize NLP tools (NLTK-based)."""
+        # Keep self.nlp = None to indicate spaCy is not used
+        self.nlp = None
+
         try:
-            # Load spaCy model
-            self.nlp = spacy.load("en_core_web_sm")
-            print(" SUCCESS: spaCy model loaded")
-        except OSError:
-            print(" WARNING: spaCy model not found. Install with: python -m spacy download en_core_web_sm")
-            self.nlp = None
-        
-        try:
-            # Initialize sentiment analyzer
+            # Ensure the VADER lexicon is available for sentiment analysis
+            nltk.download('vader_lexicon', quiet=True)
             self.sentiment_analyzer = SentimentIntensityAnalyzer()
-            print(" SUCCESS: Sentiment analyzer initialized")
+            print("SUCCESS: Sentiment analyzer initialized")
         except Exception as e:
-            print(f" WARNING: Sentiment analyzer failed: {e}")
+            print(f"WARNING: Sentiment analyzer failed: {e}")
             self.sentiment_analyzer = None
     
     def _load_solar_keywords(self) -> Dict[str, List[str]]:
@@ -157,28 +159,26 @@ class NLPProcessor:
             'numbers': [],
             'solar_terms': []
         }
-        
-        # Extract appliances
+
+        # Extract appliances and solar/location terms by simple substring match
         for category, terms in self.solar_keywords.items():
             if category == 'appliance_terms':
                 for term in terms:
                     if term in text:
                         entities['appliances'].append(term)
-        
-        # Extract locations
-        for term in self.solar_keywords['location_terms']:
-            if term in text:
-                entities['locations'].append(term)
-        
-        # Extract numbers
+            elif category == 'location_terms':
+                for term in terms:
+                    if term in text:
+                        entities['locations'].append(term)
+            elif category == 'solar_terms':
+                for term in terms:
+                    if term in text:
+                        entities['solar_terms'].append(term)
+
+        # Extract numbers (floats or ints)
         numbers = re.findall(r'\d+(?:\.\d+)?', text)
         entities['numbers'] = [float(n) for n in numbers]
-        
-        # Extract solar terms
-        for term in self.solar_keywords['solar_terms']:
-            if term in text:
-                entities['solar_terms'].append(term)
-        
+
         return entities
     
     def _classify_intent(self, text: str) -> str:

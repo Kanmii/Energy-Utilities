@@ -6,9 +6,13 @@ Provides external API tools for agents
 import os
 import json
 import logging
-import requests
 from typing import Dict, Any, Optional, List
 from datetime import datetime, timedelta
+
+try:
+    import requests
+except ImportError:
+    requests = None
 
 logger = logging.getLogger(__name__)
 
@@ -63,7 +67,7 @@ class ToolManager:
                 'location': data['name']
             }
             
-            except Exception as e:
+        except Exception as e:
             logger.error(f"Weather API call failed: {e}")
             return self._get_default_weather_data()
             
@@ -245,7 +249,7 @@ class ToolManager:
             monthly_irradiance = daily_irradiance * 30
             yearly_irradiance = daily_irradiance * 365
             
-        return {
+            return {
                 'success': True,
                 'daily_irradiance': round(daily_irradiance, 2),
                 'monthly_irradiance': round(monthly_irradiance, 2),

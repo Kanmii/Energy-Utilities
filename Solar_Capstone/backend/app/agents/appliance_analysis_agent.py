@@ -71,6 +71,18 @@ class ApplianceAnalysisAgent(BaseAgent):
         self.synonyms_db = {}
         self._load_appliance_data()
         self._load_synonyms()
+    
+    async def analyze_appliance(self, appliance_text: str) -> Dict[str, Any]:
+        """Analyze a given appliance description"""
+        input_data = {
+            'appliances': [{
+                'name': appliance_text,
+                'usage_hours': 8,  # Default usage hours
+                'quantity': 1      # Default quantity
+            }],
+            'user_query': f"Analyze energy usage for {appliance_text}"
+        }
+        return self.process(input_data)
  
     def process(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
         """Process appliance analysis request with AI intelligence"""

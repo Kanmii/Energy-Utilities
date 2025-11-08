@@ -28,6 +28,18 @@ class SolarIntelligenceAI:
         predictions = await self.prediction_engine.predict_energy_needs(analysis)
         optimization = await self.optimization_ai.optimize_system(analysis, predictions)
         
+        # Calculate watt price
+        # Using average cost per watt in USD
+        avg_cost_per_watt = 2.65  # Average cost per watt in 2025
+        if 'estimated_watts' in predictions.get('ml_predictions', {}):
+            total_watts = predictions['ml_predictions']['estimated_watts']
+            total_cost = total_watts * avg_cost_per_watt
+            predictions['watt_pricing'] = {
+                'cost_per_watt': avg_cost_per_watt,
+                'total_watts': total_watts,
+                'total_cost': total_cost
+            }
+        
         return {
             "ai_analysis": analysis,
             "ai_predictions": predictions,
